@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Widget Makers</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+    #widget-makers-site{font-family:"IBM Plex Mono",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#222;background:#f5f5f5}
+    #widget-makers-site .wm-page{max-width:1200px;margin:0 auto;padding:24px 16px 64px;box-sizing:border-box}
+    #widget-makers-site .wm-nav{display:flex;align-items:center;justify-content:space-between;padding:8px 0 32px;border-bottom:1px solid #e0e0e0;margin-bottom:32px}
+    #widget-makers-site .wm-nav-left{font-size:14px;font-weight:600;letter-spacing:.08em}
+    #widget-makers-site .wm-nav-center{display:flex;gap:32px;font-size:13px;font-weight:600;letter-spacing:.08em}
+    #widget-makers-site .wm-nav-center a{text-decoration:none;color:inherit;cursor:pointer;white-space:nowrap}
+    #widget-makers-site .wm-nav-center a:hover{text-decoration:underline}
+    #widget-makers-site .wm-cta{padding:10px 20px;border:none;background:#d9d9d9;font-size:13px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-transform:uppercase}
+    #widget-makers-site .wm-cta:hover{background:#c4c4c4}
+    #widget-makers-site .wm-hero{padding:32px 0 40px;border-bottom:1px solid #e0e0e0;position:relative}
+    #widget-makers-site .wm-hero-grid{display:grid;grid-template-columns:minmax(0,2.5fr) minmax(0,1.5fr);gap:24px}
+    #widget-makers-site .wm-hero-title{font-size:32px;line-height:1.3;margin:0 0 16px}
+    #widget-makers-site .wm-hero-sub{font-size:13px;line-height:1.7;max-width:480px;color:#666}
+    #widget-makers-site .wm-hero-cert{margin-top:40px;font-size:10px;text-transform:uppercase;letter-spacing:.12em;display:flex;align-items:center;gap:8px;color:#555;line-height:1.25}
+    #widget-makers-site .wm-hero-cert::first-line{font-family:"Playfair Display",serif;font-size:11px}
+    #widget-makers-site .wm-hero-flag{
+      width:28px;
+      height:18px;
+      background:url('https://cdn.prod.website-files.com/635ae9a87ab0f60c6a12b410/691e32cb37e1c377ed47adb5_Flag.svg') center/cover no-repeat;
+      border-radius:2px;
+      box-sizing:border-box;
+      border:none;
+    }
+    #widget-makers-site .wm-hero-bg-label{position:absolute;right:0;bottom:24px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#ccc}
+    #widget-makers-site .wm-section{padding:32px 0;border-bottom:1px solid #e0e0e0}
+    #widget-makers-site .wm-section-title{font-size:18px;margin-bottom:16px}
+    #widget-makers-site .wm-logos-section{padding:32px 0;border-bottom:1px solid #e0e0e0}
+    #widget-makers-site .wm-logo-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    #widget-makers-site .wm-logo-box{background:#e5e5e5;padding:14px 8px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.08em}
+    #widget-makers-site .wm-body-text{font-size:13px;line-height:1.7;color:#555;max-width:720px}
+    #widget-makers-site .wm-approach-list{font-size:13px;line-height:1.7;color:#555;max-width:800px;margin-top:12px}
+    #widget-makers-site .wm-approach-item span{font-weight:700}
+    #widget-makers-site .wm-cases{padding:32px 0 24px;border-bottom:1px solid #e0e0e0}
+    #widget-makers-site .wm-cases-header{margin-bottom:16px}
+    #widget-makers-site .wm-cases-row{display:flex;align-items:center;gap:24px}
+    #widget-makers-site .wm-cases-grid{flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+    #widget-makers-site .wm-case{background:0 0;border:none;text-align:left;cursor:pointer;padding:0}
+    #widget-makers-site .wm-case-figure{background:#f2f2f2;border-radius:18px;position:relative;width:100%;padding-top:100%}
+    #widget-makers-site .wm-case-meta{font-size:11px;line-height:1.6;color:#555;margin-top:8px}
+    #widget-makers-site .wm-case-meta span{font-weight:700}
+    #widget-makers-site .wm-cases-arrow{
+      width:auto;
+      height:auto;
+      border:none;
+      background:none;
+      font-size:18px;
+      padding:4px 8px;
+      cursor:pointer;
+      line-height:1;
+      color:#444;
+    }
+    #widget-makers-site .wm-cases-arrow:disabled{opacity:.25;cursor:default}
+    #widget-makers-site .wm-industries-capabilities{padding:32px 0 0}
+    #widget-makers-site .wm-inquiry-header{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:12px;color:#555}
+    #widget-makers-site .wm-toggle{position:relative;width:40px;height:20px;border-radius:999px;border:1px solid #ccc;background:#f0f0f0;padding:0;cursor:pointer}
+    #widget-makers-site .wm-toggle-knob{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.05);transition:transform .18s ease}
+    #widget-makers-site .wm-inquiry-hint{font-size:11px;color:#777;display:none}
+    #widget-makers-site .wm-ind-cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:flex-start}
+    #widget-makers-site .wm-page.wm-inquiry-mode .wm-toggle{background:#222;border-color:#222}
+    #widget-makers-site .wm-page.wm-inquiry-mode .wm-toggle-knob{transform:translateX(18px)}
+    #widget-makers-site .wm-page.wm-inquiry-mode .wm-inquiry-hint{display:inline}
+    #widget-makers-site .wm-tag-list{list-style:none;padding:0;margin:4px 0 0;font-size:13px;color:#555}
+    #widget-makers-site .wm-tag-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;cursor:pointer}
+    #widget-makers-site .wm-tag-main{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+    #widget-makers-site .wm-plus{border:none;background:0 0;padding:0;font-size:16px;cursor:pointer;line-height:1}
+    #widget-makers-site .wm-tag-label{white-space:nowrap}
+    #widget-makers-site .wm-check{display:flex;align-items:center;flex-shrink:0;visibility:hidden;pointer-events:none}
+    #widget-makers-site .wm-check input{width:18px;height:18px;margin:0;cursor:pointer;accent-color:#222}
+    #widget-makers-site .wm-page.wm-inquiry-mode .wm-check{visibility:visible;pointer-events:auto}
+    #widget-makers-site .wm-contact-panel{grid-column:1/-1;margin-top:32px;display:none}
+    #widget-makers-site .wm-page.wm-inquiry-mode .wm-contact-panel{display:grid;grid-template-columns:1.4fr 2fr 1.6fr;gap:16px;align-items:stretch}
+    #widget-makers-site .wm-contact-fields{display:grid;gap:8px}
+    #widget-makers-site .wm-contact-input{padding:10px 14px;border-radius:999px;border:1px solid #d0d0d0;background:#fdfdfd;font-size:13px;outline:0}
+    #widget-makers-site .wm-contact-input:focus{border-color:#222}
+    #widget-makers-site .wm-contact-message{border-radius:18px;min-height:80px;resize:vertical}
+    #widget-makers-site .wm-file-upload{border-radius:18px;border:1px dashed #ccc;background:#fafafa;font-size:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+    #widget-makers-site .wm-file-title{font-size:12px;font-weight:600}
+    #widget-makers-site .wm-file-drop{font-size:11px;color:#777}
+    #widget-makers-site .wm-contact-submit{margin-top:auto;align-self:flex-end;padding:10px 22px;border-radius:0;border:none;background:#d9d9d9;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+    #widget-makers-site .wm-contact-submit:hover{background:#c4c4c4}
+    #widget-makers-site .wm-footer{margin-top:40px;font-size:11px;color:#999}
+    #widget-makers-site .wm-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;z-index:9999}
+    #widget-makers-site .wm-modal-overlay.is-open{display:flex}
+    #widget-makers-site .wm-modal{max-width:960px;width:100%;background:#f5f5f5;padding:24px 24px 24px;box-sizing:border-box;position:relative}
+    #widget-makers-site .wm-modal-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+    #widget-makers-site .wm-modal-title{font-size:26px}
+    #widget-makers-site .wm-modal-close{border:none;background:0 0;font-size:22px;cursor:pointer;line-height:1}
+    #widget-makers-site .wm-modal-bg-label{position:absolute;right:24px;top:82px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#ccc}
+    #widget-makers-site .wm-modal-body{margin-top:72px;font-size:13px;line-height:1.8;color:#555}
+    #widget-makers-site .wm-modal-images-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+    #widget-makers-site .wm-modal-image{background:#ececec;border-radius:4px;height:120px;font-size:11px;color:#c0c0c0;display:flex;align-items:center;justify-content:center;text-transform:uppercase}
+    #widget-makers-site .wm-modal-cta-row{display:flex;justify-content:flex-end;margin-top:24px}
+    #widget-makers-site .wm-page.wm-modal-open{overflow:hidden}
+    #widget-makers-site .wm-nav-left,
+    #widget-makers-site .wm-section-title,
+    #widget-makers-site .wm-hero-title,
+    #widget-makers-site .wm-cases-header h2,
+    #widget-makers-site .wm-modal-title{font-family:"Playfair Display",serif}
+    @media(max-width:900px){
+      #widget-makers-site .wm-hero-grid{grid-template-columns:minmax(0,1fr)}
+      #widget-makers-site .wm-logo-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+      #widget-makers-site .wm-cases-grid{grid-template-columns:minmax(0,1fr)}
+      #widget-makers-site .wm-ind-cap-grid{grid-template-columns:minmax(0,1fr)}
+      #widget-makers-site .wm-page.wm-inquiry-mode .wm-contact-panel{grid-template-columns:minmax(0,1fr)}
+      #widget-makers-site .wm-cases-row{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <div id="widget-makers-site">
+    <div class="wm-page">
+      <header class="wm-nav">
+        <div class="wm-nav-left">LOGO</div>
+        <nav class="wm-nav-center">
+          <a href="#wm-industries">INDUSTRIES</a><a href="#wm-capabilities">CAPABILITIES</a><a href="#wm-about">ABOUT</a>
+        </nav>
+        <button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button>
+      </header>
+
+      <main>
+        <section class="wm-hero" id="wm-about">
+          <div class="wm-hero-grid">
+            <div>
+              <h1 class="wm-hero-title">Advanced prototyping &amp;<br>scaled production for deep-tech</h1>
+              <p class="wm-hero-sub">We’re the bridge between concept and capability, giving founders the means to prove, iterate, and scale technologies that shape the future.</p>
+              <div class="wm-hero-cert">
+                <div class="wm-hero-flag"></div>
+                <div>American Made in Los Angeles<br>AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED</div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+          <div class="wm-hero-bg-label">BACKGROUND IMAGE</div>
+        </section>
+
+        <section class="wm-logos-section">
+          <h2 class="wm-section-title">Makers We Build With</h2>
+          <div class="wm-logo-row">
+            <div class="wm-logo-box">LOGO</div><div class="wm-logo-box">LOGO</div><div class="wm-logo-box">LOGO</div><div class="wm-logo-box">LOGO</div><div class="wm-logo-box">LOGO</div>
+          </div>
+        </section>
+
+        <section class="wm-section">
+          <h2 class="wm-section-title">Mission</h2>
+          <p class="wm-body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lorem id odio porta suscipit.</p>
+        </section>
+
+        <section class="wm-section">
+          <h2 class="wm-section-title">Approach</h2>
+          <div class="wm-approach-list">
+            <div class="wm-approach-item"><span>Precision:</span> lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            <div class="wm-approach-item"><span>Velocity:</span> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <div class="wm-approach-item"><span>Transparency:</span> ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
+            <div class="wm-approach-item"><span>Craft:</span> Duis aute irure dolor in reprehenderit in voluptate velit esse.</div>
+            <div class="wm-approach-item"><span>Loyalty:</span> Excepteur sint occaecat cupidatat non proident.</div>
+          </div>
+        </section>
+
+        <section class="wm-cases">
+          <div class="wm-cases-header">
+            <h2 class="wm-section-title">Case Studies</h2>
+          </div>
+          <div class="wm-cases-row">
+            <button class="wm-cases-arrow js-case-prev" type="button">&#10094;</button>
+            <div class="wm-cases-grid js-cases-grid">
+              <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="APEX Space">
+                <div class="wm-case-figure"></div>
+                <div class="wm-case-meta"><span>Client:</span> APEX Space<br><span>Industry:</span> Space / Defense<br><span>Widget:</span> Lorem ipsum dolor sit amet.</div>
+              </button>
+              <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Castelion">
+                <div class="wm-case-figure"></div>
+                <div class="wm-case-meta"><span>Client:</span> Castelion<br><span>Industry:</span> Defense<br><span>Widget:</span> Consectetur adipiscing elit.</div>
+              </button>
+              <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Reliable Robotics">
+                <div class="wm-case-figure"></div>
+                <div class="wm-case-meta"><span>Client:</span> Reliable Robotics<br><span>Industry:</span> Robotics<br><span>Widget:</span> Sed do eiusmod tempor.</div>
+              </button>
+              <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Orbital Labs">
+                <div class="wm-case-figure"></div>
+                <div class="wm-case-meta"><span>Client:</span> Orbital Labs<br><span>Industry:</span> Autonomous Systems<br><span>Widget:</span> Ut labore et dolore magna.</div>
+              </button>
+              <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Ion Energy">
+                <div class="wm-case-figure"></div>
+                <div class="wm-case-meta"><span>Client:</span> Ion Energy<br><span>Industry:</span> Energy<br><span>Widget:</span> Aliquam tincidunt nunc non.</div>
+              </button>
+            </div>
+            <button class="wm-cases-arrow js-case-next" type="button">&#10095;</button>
+          </div>
+        </section>
+
+        <section class="wm-industries-capabilities" id="wm-industries">
+          <div class="wm-inquiry-header">
+            <span>Inquiry Builder</span>
+            <button type="button" class="wm-toggle js-inquiry-toggle" aria-pressed="false"><span class="wm-toggle-knob"></span></button>
+            <span class="wm-inquiry-hint">Select all that apply</span>
+          </div>
+
+          <div class="wm-ind-cap-grid">
+            <div>
+              <h2 class="wm-section-title">Industries</h2>
+              <ul class="wm-tag-list">
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Aerospace">+</button>
+                    <span class="wm-tag-label">Aerospace</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_aerospace"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Autonomous Systems">+</button>
+                    <span class="wm-tag-label">Autonomous Systems</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_autonomous"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Automotive">+</button>
+                    <span class="wm-tag-label">Automotive</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_automotive"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Defense">+</button>
+                    <span class="wm-tag-label">Defense</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_defense"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Energy">+</button>
+                    <span class="wm-tag-label">Energy</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_energy"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Food &amp; Beverage Equipment">+</button>
+                    <span class="wm-tag-label">Food &amp; Beverage Equipment</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_food"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Medical Devices">+</button>
+                    <span class="wm-tag-label">Medical Devices</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_medical"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Robotics">+</button>
+                    <span class="wm-tag-label">Robotics</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_robotics"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Transportation Systems">+</button>
+                    <span class="wm-tag-label">Transportation Systems</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="industry_transport"></label>
+                </li>
+              </ul>
+            </div>
+
+            <div id="wm-capabilities">
+              <h2 class="wm-section-title">Capabilities &amp; Services</h2>
+              <ul class="wm-tag-list">
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Additive MFG / 3D Print">+</button>
+                    <span class="wm-tag-label">Additive MFG / 3D Print</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_additive"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Bespoke Metal Forming">+</button>
+                    <span class="wm-tag-label">Bespoke Metal Forming</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_bespoke"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Cable / Harness MFG">+</button>
+                    <span class="wm-tag-label">Cable / Harness MFG</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_cable"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="CNC Milling">+</button>
+                    <span class="wm-tag-label">CNC Milling</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_cnc"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="CO2 Laser Cutting">+</button>
+                    <span class="wm-tag-label">CO2 Laser Cutting</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_co2"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Electro-Mechanical Assembly">+</button>
+                    <span class="wm-tag-label">Electro-Mechanical Assembly</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_electro"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Elec. Testing, PCBA Flashing">+</button>
+                    <span class="wm-tag-label">Elec. Testing, PCBA Flashing</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_testing"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Fabrication / Prototyping">+</button>
+                    <span class="wm-tag-label">Fabrication / Prototyping</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_fab"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Part Marking">+</button>
+                    <span class="wm-tag-label">Part Marking</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_part"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Production Assembly">+</button>
+                    <span class="wm-tag-label">Production Assembly</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_prodassembly"></label>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="wm-section-title" style="visibility:hidden">Spacer</h2>
+              <ul class="wm-tag-list">
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Production Tooling Design">+</button>
+                    <span class="wm-tag-label">Production Tooling Design</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_tooling"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet Metal Assembly">+</button>
+                    <span class="wm-tag-label">Sheet Metal Assembly</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_sheet_assembly"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet Metal Laser Cutting">+</button>
+                    <span class="wm-tag-label">Sheet Metal Laser Cutting</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_sheet_cutting"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet/Plate Forming">+</button>
+                    <span class="wm-tag-label">Sheet/Plate Forming</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_sheet_forming"></label>
+                </li>
+                <li class="wm-tag-item">
+                  <div class="wm-tag-main">
+                    <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Supply Chain Service">+</button>
+                    <span class="wm-tag-label">Supply Chain Service</span>
+                  </div>
+                  <label class="wm-check"><input type="checkbox" name="cap_supply_chain"></label>
+                </li>
+              </ul>
+            </div>
+
+            <div class="wm-contact-panel">
+              <div class="wm-contact-fields">
+                <input class="wm-contact-input" type="text" name="name" placeholder="Name">
+                <input class="wm-contact-input" type="text" name="company" placeholder="Company">
+                <input class="wm-contact-input" type="email" name="email" placeholder="Email">
+              </div>
+              <textarea class="wm-contact-input wm-contact-message" name="message" placeholder="Enter Message"></textarea>
+              <div class="wm-file-upload">
+                <div class="wm-file-title">Project Files</div>
+                <div class="wm-file-drop">Drag or click to upload</div>
+                <button class="wm-contact-submit" type="button">SUBMIT INQUIRY</button>
+              </div>
+            </div>
+          </div>
+          <div class="wm-footer">© Widget Makers, Inc</div>
+        </section>
+      </main>
+    </div>
+
+    <div class="wm-modal-overlay" data-modal="industry">
+      <div class="wm-modal">
+        <div class="wm-modal-header">
+          <h2 class="wm-modal-title">Industry</h2>
+          <button class="wm-modal-close js-close-modal" type="button">×</button>
+        </div>
+        <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
+        <div class="wm-modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+          <div class="wm-modal-images-row">
+            <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
+          </div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wm-modal-overlay" data-modal="capability">
+      <div class="wm-modal">
+        <div class="wm-modal-header">
+          <h2 class="wm-modal-title">Capability</h2>
+          <button class="wm-modal-close js-close-modal" type="button">×</button>
+        </div>
+        <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
+        <div class="wm-modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc.</p>
+          <div class="wm-modal-images-row">
+            <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
+          </div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wm-modal-overlay" data-modal="case">
+      <div class="wm-modal">
+        <div class="wm-modal-header">
+          <h2 class="wm-modal-title">Case Study</h2>
+          <button class="wm-modal-close js-close-modal" type="button">×</button>
+        </div>
+        <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
+        <div class="wm-modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <div class="wm-modal-images-row">
+            <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
+          </div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const root=document.getElementById("widget-makers-site");if(!root)return;
+      const page=root.querySelector(".wm-page");
+      const industriesSection=root.querySelector(".wm-industries-capabilities");
+      const inquiryToggle=root.querySelector(".js-inquiry-toggle");
+      const contactButtons=root.querySelectorAll(".js-contact-btn");
+
+      function enableInquiryMode(){if(!page.classList.contains("wm-inquiry-mode")){page.classList.add("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","true");}}
+      function disableInquiryMode(){page.classList.remove("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","false");}
+
+      if(inquiryToggle){inquiryToggle.addEventListener("click",function(){if(page.classList.contains("wm-inquiry-mode"))disableInquiryMode();else{enableInquiryMode();if(industriesSection&&industriesSection.scrollIntoView)industriesSection.scrollIntoView({behavior:"smooth",block:"start"});}});}
+      contactButtons.forEach(btn=>{btn.addEventListener("click",function(){enableInquiryMode();if(industriesSection&&industriesSection.scrollIntoView)industriesSection.scrollIntoView({behavior:"smooth",block:"start"});});});
+
+      const casesGrid=root.querySelector(".js-cases-grid");
+      if(casesGrid){
+        const cards=[...casesGrid.querySelectorAll(".wm-case")];
+        const prev=root.querySelector(".js-case-prev");
+        const next=root.querySelector(".js-case-next");
+        let start=0,visible=3;
+        function update(){cards.forEach((c,i)=>c.style.display=(i>=start&&i<start+visible)?"block":"none");if(prev)prev.disabled=start===0;if(next)next.disabled=start+visible>=cards.length;}
+        if(cards.length)update();
+        if(prev)prev.addEventListener("click",()=>{if(start>0){start--;update();}});
+        if(next)next.addEventListener("click",()=>{if(start+visible<cards.length){start++;update();}});
+      }
+
+      function openModal(key,title){const overlay=root.querySelector('.wm-modal-overlay[data-modal="'+key+'"]');if(!overlay)return;const t=overlay.querySelector(".wm-modal-title");if(t&&title)t.textContent=title;overlay.classList.add("is-open");page.classList.add("wm-modal-open");}
+      function closeModal(overlay){overlay.classList.remove("is-open");if(!root.querySelector(".wm-modal-overlay.is-open"))page.classList.remove("wm-modal-open");}
+
+      root.querySelectorAll(".js-open-modal").forEach(btn=>{
+        btn.addEventListener("click",e=>{e.stopPropagation();openModal(btn.dataset.modal,btn.dataset.title||"");});
+      });
+      root.querySelectorAll(".wm-modal-overlay").forEach(overlay=>{
+        const closeBtn=overlay.querySelector(".js-close-modal");
+        if(closeBtn)closeBtn.addEventListener("click",()=>closeModal(overlay));
+        overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal(overlay);});
+      });
+
+      root.querySelectorAll(".wm-tag-item").forEach(item=>{
+        const plus=item.querySelector(".wm-plus");
+        const label=item.querySelector(".wm-tag-label");
+        if(plus){
+          plus.addEventListener("click",e=>{e.stopPropagation();openModal(plus.dataset.modal,plus.dataset.title||"");});
+        }
+        if(label){
+          label.addEventListener("click",e=>{e.stopPropagation();if(plus)openModal(plus.dataset.modal,plus.dataset.title||"");});
+        }
+        const checkbox=item.querySelector(".wm-check input");
+        if(checkbox){
+          checkbox.addEventListener("click",e=>{e.stopPropagation();});
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
