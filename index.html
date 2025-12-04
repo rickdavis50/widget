@@ -320,7 +320,7 @@
               </ul>
             </div>
 
-            <form class="wm-contact-panel" id="wm-inquiry-form" action="https://formsubmit.co/hello@oddfort.com" method="POST" enctype="multipart/form-data" target="wm-inquiry-target">
+            <form class="wm-contact-panel" id="wm-inquiry-form" action="https://formsubmit.co/ajax/hello@oddfort.com" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_subject" value="New inquiry from Widget Makers">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
@@ -406,7 +406,6 @@
 
   <script src="copy.js"></script>
   <script src="header.js"></script>
-  <iframe name="wm-inquiry-target" id="wm-inquiry-target" style="display:none"></iframe>
   <script>
     (function(){
       const root=document.getElementById("widget-makers-site");if(!root)return;
@@ -426,7 +425,6 @@
       const formStatus=root.querySelector(".wm-form-status");
       const industriesHidden=root.querySelector("#wm-industries-selected");
       const capabilitiesHidden=root.querySelector("#wm-capabilities-selected");
-      const formTarget=document.getElementById("wm-inquiry-target");
 
       function enableInquiryMode(){if(!page.classList.contains("wm-inquiry-mode")){page.classList.add("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","true");}}
       function disableInquiryMode(){page.classList.remove("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","false");}
@@ -527,24 +525,14 @@
       }
 
       if(form){
-        form.addEventListener("submit",()=>{
+        form.addEventListener("submit",e=>{
+          e.preventDefault();
           beforeSubmit();
-        });
-      }
-
-      if(formTarget){
-        formTarget.addEventListener("load",()=>{
-          try{
-            const doc=formTarget.contentDocument||formTarget.contentWindow?.document;
-            const text=doc?.body?.innerText||"";
-            if(/error/i.test(text)){
-              handleError();
-            }else{
-              handleSuccess();
-            }
-          }catch(e){
-            handleError();
-          }
+          const fd=new FormData(form);
+          fetch(form.action,{method:"POST",headers:{"Accept":"application/json"},body:fd})
+            .then(res=>res.ok?res.json():res.json().catch(()=>{throw new Error("Submit failed");}).then(()=>{throw new Error("Submit failed");}))
+            .then(()=>handleSuccess())
+            .catch(err=>{console.error(err);handleError();});
         });
       }
     })();
