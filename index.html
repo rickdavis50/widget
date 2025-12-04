@@ -328,8 +328,13 @@
               </div>
               <textarea class="wm-contact-input wm-contact-message" name="message" placeholder="Enter Message"></textarea>
               <div class="wm-file-upload">
-                <div class="wm-file-title" data-copy="inquiry.filesTitle">Project Files</div>
-                <div class="wm-file-drop" data-copy="inquiry.filesDrop">Drag or click to upload</div>
+                <label class="wm-file-drop" for="wm-file-input">
+                  <img src="images/icon_upload.svg" alt="" aria-hidden="true" class="wm-file-icon">
+                  <div class="wm-file-title" data-copy="inquiry.filesTitle">Project Files</div>
+                  <div class="wm-file-hint" data-copy="inquiry.filesDrop">Drag or click to upload</div>
+                  <input id="wm-file-input" class="wm-file-input" type="file" multiple>
+                </label>
+                <div class="wm-file-list" aria-live="polite"></div>
                 <button class="wm-contact-submit wm-cta wm-cta-primary" type="button" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
               </div>
             </div>
@@ -405,6 +410,9 @@
       const companyInput=root.querySelector('input[name="company"]');
       const emailInput=root.querySelector('input[name="email"]');
       const messageInput=root.querySelector('textarea[name="message"]');
+      const fileInput=root.querySelector("#wm-file-input");
+      const fileDrop=root.querySelector(".wm-file-drop");
+      const fileList=root.querySelector(".wm-file-list");
 
       function enableInquiryMode(){if(!page.classList.contains("wm-inquiry-mode")){page.classList.add("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","true");}}
       function disableInquiryMode(){page.classList.remove("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","false");}
@@ -468,36 +476,49 @@
           });
       }
 
-      function buildMailto(){
-        const name=(nameInput?.value||"").trim();
-        const company=(companyInput?.value||"").trim();
-        const email=(emailInput?.value||"").trim();
-        const message=(messageInput?.value||"").trim();
+      function updateFileList(files){
+        if(!fileList)return;
+        if(!files.length){fileList.textContent="";return;}
+        const names=[...files].map(f=>`${f.name} (${Math.round(f.size/1024)} KB)`);
+        fileList.textContent=names.join(", ");
+      }
+
+      if(fileDrop && fileInput){
+        fileDrop.addEventListener("click",()=>fileInput.click());
+        fileDrop.addEventListener("dragover",e=>{e.preventDefault();fileDrop.classList.add("is-dragging");});
+        fileDrop.addEventListener("dragleave",e=>{e.preventDefault();fileDrop.classList.remove("is-dragging");});
+        fileDrop.addEventListener("drop",e=>{e.preventDefault();fileDrop.classList.remove("is-dragging");fileInput.files=e.dataTransfer.files;updateFileList(fileInput.files);});
+        fileInput.addEventListener("change",()=>updateFileList(fileInput.files));
+      }
+
+      function submitInquiry(){
         const industries=getChecked('input[name^="industry_"]');
         const capabilities=getChecked('input[name^="cap_"]');
 
-        const lines=[];
-        lines.push("New inquiry from Widget Makers site");
-        lines.push("");
-        if(name)lines.push(`Name: ${name}`);
-        if(company)lines.push(`Company: ${company}`);
-        if(email)lines.push(`Email: ${email}`);
-        lines.push(`Industries: ${industries.length?industries.join(", "):"None selected"}`);
-        lines.push(`Capabilities: ${capabilities.length?capabilities.join(", "):"None selected"}`);
-        lines.push("");
-        lines.push("Message:");
-        lines.push(message|| "(no message provided)");
+        const fd=new FormData();
+        fd.append("name",(nameInput?.value||"").trim());
+        fd.append("company",(companyInput?.value||"").trim());
+        fd.append("email",(emailInput?.value||"").trim());
+        fd.append("message",(messageInput?.value||"").trim());
+        fd.append("industries",industries.join(", "));
+        fd.append("capabilities",capabilities.join(", "));
+        fd.append("_subject","New inquiry from Widget Makers");
+        fd.append("_captcha","false");
+        fd.append("_replyto",(emailInput?.value||"").trim());
 
-        const subject=encodeURIComponent("New inquiry from Widget Makers");
-        const body=encodeURIComponent(lines.join("\n"));
-        return `mailto:hello@oddfort.com?subject=${subject}&body=${body}`;
+        if(fileInput?.files?.length){
+          [...fileInput.files].forEach(f=>fd.append("attachments",f));
+        }
+
+        fetch("https://formsubmit.co/hello@oddfort.com",{method:"POST",body:fd})
+          .then(res=>{if(!res.ok)throw new Error("Submit failed");alert("Thanks! Your inquiry was sent.");})
+          .catch(err=>{console.error(err);alert("Sorry, there was an issue sending. Please email hello@oddfort.com.");});
       }
 
       if(submitButton){
         submitButton.addEventListener("click",e=>{
           e.preventDefault();
-          const mailto=buildMailto();
-          window.location.href=mailto;
+          submitInquiry();
         });
       }
     })();
