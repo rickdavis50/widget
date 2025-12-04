@@ -49,12 +49,13 @@
 .wm-cases-arrow:disabled{opacity:.25;cursor:default}
 .wm-industries-capabilities{padding:32px 0 0}
 .wm-inquiry-header{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:12px;color:#555}
-.wm-toggle{position:relative;width:40px;height:20px;border-radius:999px;border:1px solid #d0d0d0;background:#d0d0d0;padding:0;cursor:pointer}
-.wm-toggle-knob{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;border:1px solid #db6565;box-shadow:none;transition:transform .18s ease}
+.wm-toggle{position:relative;width:40px;height:20px;border-radius:999px;border:1px solid #d0d0d0;background:#d0d0d0;padding:0;cursor:pointer;outline:none;box-shadow:none}
+.wm-toggle:focus-visible{outline:none;box-shadow:none}
+.wm-toggle-knob{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;border:1px solid #db6565;box-shadow:none;transition:transform .18s ease,border-color .18s ease}
 .wm-inquiry-hint{font-size:11px;color:#777;display:none}
 .wm-ind-cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:flex-start}
-.wm-page.wm-inquiry-mode .wm-toggle{background:#222;border-color:#222}
-.wm-page.wm-inquiry-mode .wm-toggle-knob{transform:translateX(18px)}
+.wm-page.wm-inquiry-mode .wm-toggle{background:#db6565;border-color:#db6565}
+.wm-page.wm-inquiry-mode .wm-toggle-knob{transform:translateX(18px);border-color:transparent}
 .wm-page.wm-inquiry-mode .wm-inquiry-hint{display:inline}
 .wm-tag-list{list-style:none;padding:0;margin:4px 0 0;font-size:13px;color:#555}
 .wm-tag-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;cursor:pointer}
