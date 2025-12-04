@@ -320,11 +320,16 @@
               </ul>
             </div>
 
-            <div class="wm-contact-panel">
+            <form class="wm-contact-panel" id="wm-inquiry-form" action="https://formsubmit.co/hello@oddfort.com" method="POST" enctype="multipart/form-data" target="wm-inquiry-target">
+              <input type="hidden" name="_subject" value="New inquiry from Widget Makers">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="industries_selected" id="wm-industries-selected">
+              <input type="hidden" name="capabilities_selected" id="wm-capabilities-selected">
               <div class="wm-contact-fields">
                 <input class="wm-contact-input" type="text" name="name" placeholder="Name">
                 <input class="wm-contact-input" type="text" name="company" placeholder="Company">
-                <input class="wm-contact-input" type="email" name="email" placeholder="Email">
+                <input class="wm-contact-input" type="email" name="_replyto" placeholder="Email">
               </div>
               <textarea class="wm-contact-input wm-contact-message" name="message" placeholder="Enter Message"></textarea>
               <div class="wm-file-upload">
@@ -332,12 +337,15 @@
                   <img src="images/icon_upload.svg" alt="" aria-hidden="true" class="wm-file-icon">
                   <div class="wm-file-title" data-copy="inquiry.filesTitle">Project Files</div>
                   <div class="wm-file-hint" data-copy="inquiry.filesDrop">Drag or click to upload</div>
-                  <input id="wm-file-input" class="wm-file-input" type="file" multiple>
+                  <input id="wm-file-input" class="wm-file-input" type="file" name="attachments[]" multiple>
                 </label>
                 <div class="wm-file-list" aria-live="polite"></div>
-                <button class="wm-contact-submit wm-cta wm-cta-primary" type="button" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
               </div>
-            </div>
+              <div class="wm-contact-actions">
+                <span class="wm-form-status" aria-live="polite"></span>
+                <button class="wm-contact-submit wm-cta wm-cta-primary" type="submit" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
+              </div>
+            </form>
           </div>
           <div class="wm-footer" data-copy="footer">© Widget Makers, Inc</div>
         </section>
@@ -398,6 +406,7 @@
 
   <script src="copy.js"></script>
   <script src="header.js"></script>
+  <iframe name="wm-inquiry-target" id="wm-inquiry-target" style="display:none"></iframe>
   <script>
     (function(){
       const root=document.getElementById("widget-makers-site");if(!root)return;
@@ -408,11 +417,16 @@
       const submitButton=root.querySelector(".wm-contact-submit");
       const nameInput=root.querySelector('input[name="name"]');
       const companyInput=root.querySelector('input[name="company"]');
-      const emailInput=root.querySelector('input[name="email"]');
+      const emailInput=root.querySelector('input[name="_replyto"]');
       const messageInput=root.querySelector('textarea[name="message"]');
       const fileInput=root.querySelector("#wm-file-input");
       const fileDrop=root.querySelector(".wm-file-drop");
       const fileList=root.querySelector(".wm-file-list");
+      const form=root.querySelector("#wm-inquiry-form");
+      const formStatus=root.querySelector(".wm-form-status");
+      const industriesHidden=root.querySelector("#wm-industries-selected");
+      const capabilitiesHidden=root.querySelector("#wm-capabilities-selected");
+      const formTarget=document.getElementById("wm-inquiry-target");
 
       function enableInquiryMode(){if(!page.classList.contains("wm-inquiry-mode")){page.classList.add("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","true");}}
       function disableInquiryMode(){page.classList.remove("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","false");}
@@ -491,35 +505,46 @@
         fileInput.addEventListener("change",()=>updateFileList(fileInput.files));
       }
 
-      function submitInquiry(){
+      function beforeSubmit(){
         const industries=getChecked('input[name^="industry_"]');
         const capabilities=getChecked('input[name^="cap_"]');
-
-        const fd=new FormData();
-        fd.append("name",(nameInput?.value||"").trim());
-        fd.append("company",(companyInput?.value||"").trim());
-        fd.append("email",(emailInput?.value||"").trim());
-        fd.append("message",(messageInput?.value||"").trim());
-        fd.append("industries",industries.join(", "));
-        fd.append("capabilities",capabilities.join(", "));
-        fd.append("_subject","New inquiry from Widget Makers");
-        fd.append("_captcha","false");
-        fd.append("_replyto",(emailInput?.value||"").trim());
-
-        if(fileInput?.files?.length){
-          [...fileInput.files].forEach(f=>fd.append("attachments",f));
-        }
-
-        fetch("https://formsubmit.co/ajax/hello@oddfort.com",{method:"POST",body:fd})
-          .then(res=>res.ok?res.json():res.json().catch(()=>{throw new Error("Submit failed");}).then(()=>{throw new Error("Submit failed");}))
-          .then(()=>{alert("Thanks! Your inquiry was sent.");})
-          .catch(err=>{console.error(err);alert("Sorry, there was an issue sending. Please email hello@oddfort.com.");});
+        if(industriesHidden)industriesHidden.value=industries.join(", ");
+        if(capabilitiesHidden)capabilitiesHidden.value=capabilities.join(", ");
+        if(formStatus)formStatus.textContent="Sending...";
+        if(submitButton)submitButton.disabled=true;
       }
 
-      if(submitButton){
-        submitButton.addEventListener("click",e=>{
-          e.preventDefault();
-          submitInquiry();
+      function handleSuccess(){
+        if(formStatus)formStatus.textContent="Sent! Thank you.";
+        if(submitButton)submitButton.disabled=false;
+        if(form)form.reset();
+        updateFileList([]);
+      }
+
+      function handleError(){
+        if(formStatus)formStatus.textContent="Sorry, there was an issue. Please try again.";
+        if(submitButton)submitButton.disabled=false;
+      }
+
+      if(form){
+        form.addEventListener("submit",()=>{
+          beforeSubmit();
+        });
+      }
+
+      if(formTarget){
+        formTarget.addEventListener("load",()=>{
+          try{
+            const doc=formTarget.contentDocument||formTarget.contentWindow?.document;
+            const text=doc?.body?.innerText||"";
+            if(/error/i.test(text)){
+              handleError();
+            }else{
+              handleSuccess();
+            }
+          }catch(e){
+            handleError();
+          }
         });
       }
     })();
