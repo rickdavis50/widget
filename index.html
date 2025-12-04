@@ -330,7 +330,7 @@
               <div class="wm-file-upload">
                 <div class="wm-file-title" data-copy="inquiry.filesTitle">Project Files</div>
                 <div class="wm-file-drop" data-copy="inquiry.filesDrop">Drag or click to upload</div>
-                <button class="wm-contact-submit" type="button" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
+                <button class="wm-contact-submit wm-cta wm-cta-primary" type="button" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
               </div>
             </div>
           </div>
@@ -400,6 +400,11 @@
       const industriesSection=root.querySelector(".wm-industries-capabilities");
       const inquiryToggle=root.querySelector(".js-inquiry-toggle");
       const contactButtons=root.querySelectorAll(".js-contact-btn");
+      const submitButton=root.querySelector(".wm-contact-submit");
+      const nameInput=root.querySelector('input[name="name"]');
+      const companyInput=root.querySelector('input[name="company"]');
+      const emailInput=root.querySelector('input[name="email"]');
+      const messageInput=root.querySelector('textarea[name="message"]');
 
       function enableInquiryMode(){if(!page.classList.contains("wm-inquiry-mode")){page.classList.add("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","true");}}
       function disableInquiryMode(){page.classList.remove("wm-inquiry-mode");if(inquiryToggle)inquiryToggle.setAttribute("aria-pressed","false");}
@@ -452,6 +457,49 @@
           checkbox.addEventListener("click",e=>{e.stopPropagation();});
         }
       });
+
+      function getChecked(selector){
+        return [...root.querySelectorAll(selector)]
+          .filter(input=>input.checked)
+          .map(input=>{
+            const item=input.closest(".wm-tag-item");
+            const label=item?.querySelector(".wm-tag-label");
+            return label?label.textContent.trim():input.name;
+          });
+      }
+
+      function buildMailto(){
+        const name=(nameInput?.value||"").trim();
+        const company=(companyInput?.value||"").trim();
+        const email=(emailInput?.value||"").trim();
+        const message=(messageInput?.value||"").trim();
+        const industries=getChecked('input[name^="industry_"]');
+        const capabilities=getChecked('input[name^="cap_"]');
+
+        const lines=[];
+        lines.push("New inquiry from Widget Makers site");
+        lines.push("");
+        if(name)lines.push(`Name: ${name}`);
+        if(company)lines.push(`Company: ${company}`);
+        if(email)lines.push(`Email: ${email}`);
+        lines.push(`Industries: ${industries.length?industries.join(", "):"None selected"}`);
+        lines.push(`Capabilities: ${capabilities.length?capabilities.join(", "):"None selected"}`);
+        lines.push("");
+        lines.push("Message:");
+        lines.push(message|| "(no message provided)");
+
+        const subject=encodeURIComponent("New inquiry from Widget Makers");
+        const body=encodeURIComponent(lines.join("\n"));
+        return `mailto:hello@oddfort.com?subject=${subject}&body=${body}`;
+      }
+
+      if(submitButton){
+        submitButton.addEventListener("click",e=>{
+          e.preventDefault();
+          const mailto=buildMailto();
+          window.location.href=mailto;
+        });
+      }
     })();
   </script>
 </body>
