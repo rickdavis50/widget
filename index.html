@@ -15,14 +15,17 @@
         <section class="wm-hero" id="wm-about">
           <div class="wm-hero-grid">
             <div class="wm-hero-copy">
-              <h1 class="wm-hero-title">Advanced prototyping &amp;<br>scaled production for deep-tech</h1>
-              <p class="wm-hero-sub">We bridge concept and capability, giving founders the means to prove, iterate, and scale bleeding edge tech in the physical world.</p>
+              <h1 class="wm-hero-title" data-copy="hero.title" data-copy-html="true">Advanced prototyping &amp;<br>scaled production for deep-tech</h1>
+              <p class="wm-hero-sub" data-copy="hero.subtitle">We bridge concept and capability, giving founders the means to prove, iterate, and scale bleeding edge tech in the physical world.</p>
               <div class="wm-hero-actions">
-                <a class="wm-cta wm-cta-primary" href="#inquiry">BUILD WITH US</a>
+                <a class="wm-cta wm-cta-primary" href="#inquiry" data-copy="hero.cta">BUILD WITH US</a>
               </div>
               <div class="wm-hero-cert">
                 <img src="images/flag.svg" alt="American flag icon">
-                <div>American Made in Los Angeles<br>AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED</div>
+                <div>
+                  <span data-copy="hero.certTitle">American Made in Los Angeles</span><br>
+                  <span data-copy="hero.certDetails">AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED</span>
+                </div>
               </div>
             </div>
             <div class="wm-hero-visual">
@@ -34,7 +37,7 @@
         </section>
 
         <section class="wm-logos-section">
-          <h2 class="wm-section-title">Makers We Build With</h2>
+          <h2 class="wm-section-title" data-copy="logos.heading">Makers We Build With</h2>
           <div class="wm-logo-row">
             <a class="wm-logo-link" href="https://www.spacex.com/" target="_blank" rel="noreferrer">
               <img class="wm-logo-img" src="images/logo_spacex.svg" alt="SpaceX">
@@ -55,47 +58,67 @@
         </section>
 
         <section class="wm-section">
-          <h2 class="wm-section-title">Mission</h2>
-          <p class="wm-body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lorem id odio porta suscipit.</p>
+          <h2 class="wm-section-title" data-copy="mission.heading">Mission</h2>
+          <p class="wm-body-text" data-copy="mission.body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lorem id odio porta suscipit.</p>
         </section>
 
         <section class="wm-section">
-          <h2 class="wm-section-title">Approach</h2>
+          <h2 class="wm-section-title" data-copy="approach.heading">Approach</h2>
           <div class="wm-approach-list">
-            <div class="wm-approach-item"><span>Precision:</span> lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div class="wm-approach-item"><span>Velocity:</span> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-            <div class="wm-approach-item"><span>Transparency:</span> ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
-            <div class="wm-approach-item"><span>Craft:</span> Duis aute irure dolor in reprehenderit in voluptate velit esse.</div>
-            <div class="wm-approach-item"><span>Loyalty:</span> Excepteur sint occaecat cupidatat non proident.</div>
+            <div class="wm-approach-item"><span data-copy="approach.precision.title">Precision:</span> <span data-copy="approach.precision.body">lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></div>
+            <div class="wm-approach-item"><span data-copy="approach.velocity.title">Velocity:</span> <span data-copy="approach.velocity.body">sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></div>
+            <div class="wm-approach-item"><span data-copy="approach.transparency.title">Transparency:</span> <span data-copy="approach.transparency.body">ut enim ad minim veniam, quis nostrud exercitation ullamco.</span></div>
+            <div class="wm-approach-item"><span data-copy="approach.craft.title">Craft:</span> <span data-copy="approach.craft.body">Duis aute irure dolor in reprehenderit in voluptate velit esse.</span></div>
+            <div class="wm-approach-item"><span data-copy="approach.loyalty.title">Loyalty:</span> <span data-copy="approach.loyalty.body">Excepteur sint occaecat cupidatat non proident.</span></div>
           </div>
         </section>
 
         <section class="wm-cases">
           <div class="wm-cases-header">
-            <h2 class="wm-section-title">Case Studies</h2>
+            <h2 class="wm-section-title" data-copy="cases.heading">Case Studies</h2>
           </div>
           <div class="wm-cases-row">
             <button class="wm-cases-arrow js-case-prev" type="button">&#10094;</button>
             <div class="wm-cases-grid js-cases-grid">
               <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="APEX Space">
                 <div class="wm-case-figure"></div>
-                <div class="wm-case-meta"><span>Client:</span> APEX Space<br><span>Industry:</span> Space / Defense<br><span>Widget:</span> Lorem ipsum dolor sit amet.</div>
+                <div class="wm-case-meta">
+                  <span data-copy="cases.card1.labelClient">Client:</span> <span data-copy="cases.card1.client">APEX Space</span><br>
+                  <span data-copy="cases.card1.labelIndustry">Industry:</span> <span data-copy="cases.card1.industry">Space / Defense</span><br>
+                  <span data-copy="cases.card1.labelWidget">Widget:</span> <span data-copy="cases.card1.widget">Lorem ipsum dolor sit amet.</span>
+                </div>
               </button>
               <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Castelion">
                 <div class="wm-case-figure"></div>
-                <div class="wm-case-meta"><span>Client:</span> Castelion<br><span>Industry:</span> Defense<br><span>Widget:</span> Consectetur adipiscing elit.</div>
+                <div class="wm-case-meta">
+                  <span data-copy="cases.card2.labelClient">Client:</span> <span data-copy="cases.card2.client">Castelion</span><br>
+                  <span data-copy="cases.card2.labelIndustry">Industry:</span> <span data-copy="cases.card2.industry">Defense</span><br>
+                  <span data-copy="cases.card2.labelWidget">Widget:</span> <span data-copy="cases.card2.widget">Consectetur adipiscing elit.</span>
+                </div>
               </button>
               <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Reliable Robotics">
                 <div class="wm-case-figure"></div>
-                <div class="wm-case-meta"><span>Client:</span> Reliable Robotics<br><span>Industry:</span> Robotics<br><span>Widget:</span> Sed do eiusmod tempor.</div>
+                <div class="wm-case-meta">
+                  <span data-copy="cases.card3.labelClient">Client:</span> <span data-copy="cases.card3.client">Reliable Robotics</span><br>
+                  <span data-copy="cases.card3.labelIndustry">Industry:</span> <span data-copy="cases.card3.industry">Robotics</span><br>
+                  <span data-copy="cases.card3.labelWidget">Widget:</span> <span data-copy="cases.card3.widget">Sed do eiusmod tempor.</span>
+                </div>
               </button>
               <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Orbital Labs">
                 <div class="wm-case-figure"></div>
-                <div class="wm-case-meta"><span>Client:</span> Orbital Labs<br><span>Industry:</span> Autonomous Systems<br><span>Widget:</span> Ut labore et dolore magna.</div>
+                <div class="wm-case-meta">
+                  <span data-copy="cases.card4.labelClient">Client:</span> <span data-copy="cases.card4.client">Orbital Labs</span><br>
+                  <span data-copy="cases.card4.labelIndustry">Industry:</span> <span data-copy="cases.card4.industry">Autonomous Systems</span><br>
+                  <span data-copy="cases.card4.labelWidget">Widget:</span> <span data-copy="cases.card4.widget">Ut labore et dolore magna.</span>
+                </div>
               </button>
               <button class="wm-case js-open-modal" type="button" data-modal="case" data-title="Ion Energy">
                 <div class="wm-case-figure"></div>
-                <div class="wm-case-meta"><span>Client:</span> Ion Energy<br><span>Industry:</span> Energy<br><span>Widget:</span> Aliquam tincidunt nunc non.</div>
+                <div class="wm-case-meta">
+                  <span data-copy="cases.card5.labelClient">Client:</span> <span data-copy="cases.card5.client">Ion Energy</span><br>
+                  <span data-copy="cases.card5.labelIndustry">Industry:</span> <span data-copy="cases.card5.industry">Energy</span><br>
+                  <span data-copy="cases.card5.labelWidget">Widget:</span> <span data-copy="cases.card5.widget">Aliquam tincidunt nunc non.</span>
+                </div>
               </button>
             </div>
             <button class="wm-cases-arrow js-case-next" type="button">&#10095;</button>
@@ -105,75 +128,75 @@
         <section class="wm-industries-capabilities" id="wm-industries">
           <div id="inquiry"></div>
           <div class="wm-inquiry-header">
-            <span>Inquiry Builder</span>
+            <span data-copy="inquiry.title">Inquiry Builder</span>
             <button type="button" class="wm-toggle js-inquiry-toggle" aria-pressed="false"><span class="wm-toggle-knob"></span></button>
-            <span class="wm-inquiry-hint">Select all that apply</span>
+            <span class="wm-inquiry-hint" data-copy="inquiry.hint">Select all that apply</span>
           </div>
 
           <div class="wm-ind-cap-grid">
             <div>
-              <h2 class="wm-section-title">Industries</h2>
+              <h2 class="wm-section-title" data-copy="industries.heading">Industries</h2>
               <ul class="wm-tag-list">
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Aerospace">+</button>
-                    <span class="wm-tag-label">Aerospace</span>
+                    <span class="wm-tag-label" data-copy="industries.list.aerospace">Aerospace</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_aerospace"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Autonomous Systems">+</button>
-                    <span class="wm-tag-label">Autonomous Systems</span>
+                    <span class="wm-tag-label" data-copy="industries.list.autonomous">Autonomous Systems</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_autonomous"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Automotive">+</button>
-                    <span class="wm-tag-label">Automotive</span>
+                    <span class="wm-tag-label" data-copy="industries.list.automotive">Automotive</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_automotive"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Defense">+</button>
-                    <span class="wm-tag-label">Defense</span>
+                    <span class="wm-tag-label" data-copy="industries.list.defense">Defense</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_defense"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Energy">+</button>
-                    <span class="wm-tag-label">Energy</span>
+                    <span class="wm-tag-label" data-copy="industries.list.energy">Energy</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_energy"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Food &amp; Beverage Equipment">+</button>
-                    <span class="wm-tag-label">Food &amp; Beverage Equipment</span>
+                    <span class="wm-tag-label" data-copy="industries.list.food">Food &amp; Beverage Equipment</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_food"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Medical Devices">+</button>
-                    <span class="wm-tag-label">Medical Devices</span>
+                    <span class="wm-tag-label" data-copy="industries.list.medical">Medical Devices</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_medical"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Robotics">+</button>
-                    <span class="wm-tag-label">Robotics</span>
+                    <span class="wm-tag-label" data-copy="industries.list.robotics">Robotics</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_robotics"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="industry" data-title="Transportation Systems">+</button>
-                    <span class="wm-tag-label">Transportation Systems</span>
+                    <span class="wm-tag-label" data-copy="industries.list.transport">Transportation Systems</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="industry_transport"></label>
                 </li>
@@ -181,75 +204,75 @@
             </div>
 
             <div id="wm-capabilities">
-              <h2 class="wm-section-title">Capabilities &amp; Services</h2>
+              <h2 class="wm-section-title" data-copy="capabilities.heading">Capabilities &amp; Services</h2>
               <ul class="wm-tag-list">
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Additive MFG / 3D Print">+</button>
-                    <span class="wm-tag-label">Additive MFG / 3D Print</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.additive">Additive MFG / 3D Print</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_additive"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Bespoke Metal Forming">+</button>
-                    <span class="wm-tag-label">Bespoke Metal Forming</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.bespoke">Bespoke Metal Forming</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_bespoke"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Cable / Harness MFG">+</button>
-                    <span class="wm-tag-label">Cable / Harness MFG</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.cable">Cable / Harness MFG</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_cable"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="CNC Milling">+</button>
-                    <span class="wm-tag-label">CNC Milling</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.cnc">CNC Milling</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_cnc"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="CO2 Laser Cutting">+</button>
-                    <span class="wm-tag-label">CO2 Laser Cutting</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.co2">CO2 Laser Cutting</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_co2"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Electro-Mechanical Assembly">+</button>
-                    <span class="wm-tag-label">Electro-Mechanical Assembly</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.electro">Electro-Mechanical Assembly</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_electro"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Elec. Testing, PCBA Flashing">+</button>
-                    <span class="wm-tag-label">Elec. Testing, PCBA Flashing</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.testing">Elec. Testing, PCBA Flashing</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_testing"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Fabrication / Prototyping">+</button>
-                    <span class="wm-tag-label">Fabrication / Prototyping</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.fab">Fabrication / Prototyping</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_fab"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Part Marking">+</button>
-                    <span class="wm-tag-label">Part Marking</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.partMarking">Part Marking</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_part"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Production Assembly">+</button>
-                    <span class="wm-tag-label">Production Assembly</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.production">Production Assembly</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_prodassembly"></label>
                 </li>
@@ -262,35 +285,35 @@
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Production Tooling Design">+</button>
-                    <span class="wm-tag-label">Production Tooling Design</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.tooling">Production Tooling Design</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_tooling"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet Metal Assembly">+</button>
-                    <span class="wm-tag-label">Sheet Metal Assembly</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.sheetAssembly">Sheet Metal Assembly</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_sheet_assembly"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet Metal Laser Cutting">+</button>
-                    <span class="wm-tag-label">Sheet Metal Laser Cutting</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.sheetCutting">Sheet Metal Laser Cutting</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_sheet_cutting"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Sheet/Plate Forming">+</button>
-                    <span class="wm-tag-label">Sheet/Plate Forming</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.sheetForming">Sheet/Plate Forming</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_sheet_forming"></label>
                 </li>
                 <li class="wm-tag-item">
                   <div class="wm-tag-main">
                     <button class="wm-plus js-open-modal" type="button" data-modal="capability" data-title="Supply Chain Service">+</button>
-                    <span class="wm-tag-label">Supply Chain Service</span>
+                    <span class="wm-tag-label" data-copy="capabilities.list.supplyChain">Supply Chain Service</span>
                   </div>
                   <label class="wm-check"><input type="checkbox" name="cap_supply_chain"></label>
                 </li>
@@ -305,13 +328,13 @@
               </div>
               <textarea class="wm-contact-input wm-contact-message" name="message" placeholder="Enter Message"></textarea>
               <div class="wm-file-upload">
-                <div class="wm-file-title">Project Files</div>
-                <div class="wm-file-drop">Drag or click to upload</div>
-                <button class="wm-contact-submit" type="button">SUBMIT INQUIRY</button>
+                <div class="wm-file-title" data-copy="inquiry.filesTitle">Project Files</div>
+                <div class="wm-file-drop" data-copy="inquiry.filesDrop">Drag or click to upload</div>
+                <button class="wm-contact-submit" type="button" data-copy="inquiry.submit">SUBMIT INQUIRY</button>
               </div>
             </div>
           </div>
-          <div class="wm-footer">© Widget Makers, Inc</div>
+          <div class="wm-footer" data-copy="footer">© Widget Makers, Inc</div>
         </section>
       </main>
     </div>
@@ -319,16 +342,16 @@
     <div class="wm-modal-overlay" data-modal="industry">
       <div class="wm-modal">
         <div class="wm-modal-header">
-          <h2 class="wm-modal-title">Industry</h2>
+          <h2 class="wm-modal-title" data-copy="modal.industryTitle">Industry</h2>
           <button class="wm-modal-close js-close-modal" type="button">×</button>
         </div>
         <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
         <div class="wm-modal-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
+          <p data-copy="modal.industryBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.</p>
           <div class="wm-modal-images-row">
             <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
           </div>
-          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button" data-copy="cta.contact">CONTACT BUTTON</button></div>
         </div>
       </div>
     </div>
@@ -336,16 +359,16 @@
     <div class="wm-modal-overlay" data-modal="capability">
       <div class="wm-modal">
         <div class="wm-modal-header">
-          <h2 class="wm-modal-title">Capability</h2>
+          <h2 class="wm-modal-title" data-copy="modal.capabilityTitle">Capability</h2>
           <button class="wm-modal-close js-close-modal" type="button">×</button>
         </div>
         <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
         <div class="wm-modal-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc.</p>
+          <p data-copy="modal.capabilityBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc.</p>
           <div class="wm-modal-images-row">
             <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
           </div>
-          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button" data-copy="cta.contact">CONTACT BUTTON</button></div>
         </div>
       </div>
     </div>
@@ -353,21 +376,22 @@
     <div class="wm-modal-overlay" data-modal="case">
       <div class="wm-modal">
         <div class="wm-modal-header">
-          <h2 class="wm-modal-title">Case Study</h2>
+          <h2 class="wm-modal-title" data-copy="modal.caseTitle">Case Study</h2>
           <button class="wm-modal-close js-close-modal" type="button">×</button>
         </div>
         <div class="wm-modal-bg-label">BACKGROUND IMAGE</div>
         <div class="wm-modal-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+          <p data-copy="modal.caseBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
           <div class="wm-modal-images-row">
             <div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div><div class="wm-modal-image">Image</div>
           </div>
-          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button">CONTACT BUTTON</button></div>
+          <div class="wm-modal-cta-row"><button class="wm-cta js-contact-btn" type="button" data-copy="cta.contact">CONTACT BUTTON</button></div>
         </div>
       </div>
     </div>
   </div>
 
+  <script src="copy.js"></script>
   <script src="header.js"></script>
   <script>
     (function(){

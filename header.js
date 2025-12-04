@@ -15,10 +15,13 @@
         </a>
       </div>
       <nav class="wm-nav-center">
-        <a href="${industriesLink}">INDUSTRIES</a>
-        <a href="${capabilitiesLink}">CAPABILITIES</a>
-        <a href="${aboutLink}">ABOUT</a>
+        <a href="${industriesLink}" data-copy="nav.industries">INDUSTRIES</a>
+        <a href="${capabilitiesLink}" data-copy="nav.capabilities">CAPABILITIES</a>
+        <a href="${aboutLink}" data-copy="nav.about">ABOUT</a>
       </nav>
     </header>
   `;
+  if(window.wmCopy){
+    document.dispatchEvent(new Event("wm:copy-refresh"));
+  }
 })();

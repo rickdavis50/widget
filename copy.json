@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "industries": "INDUSTRIES",
+    "capabilities": "CAPABILITIES",
+    "about": "ABOUT"
+  },
+  "hero": {
+    "title": "Advanced prototyping &amp;<br>scaled production for deep-tech",
+    "subtitle": "We bridge concept and capability, giving founders the means to prove, iterate, and scale bleeding edge tech in the physical world.",
+    "cta": "BUILD WITH US",
+    "certTitle": "American Made in Los Angeles",
+    "certDetails": "AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED"
+  },
+  "logos": {
+    "heading": "Makers We Build With"
+  },
+  "mission": {
+    "heading": "Mission",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lorem id odio porta suscipit."
+  },
+  "approach": {
+    "heading": "Approach",
+    "precision": {
+      "title": "Precision:",
+      "body": "lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "velocity": {
+      "title": "Velocity:",
+      "body": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "transparency": {
+      "title": "Transparency:",
+      "body": "ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    },
+    "craft": {
+      "title": "Craft:",
+      "body": "Duis aute irure dolor in reprehenderit in voluptate velit esse."
+    },
+    "loyalty": {
+      "title": "Loyalty:",
+      "body": "Excepteur sint occaecat cupidatat non proident."
+    }
+  },
+  "cases": {
+    "heading": "Case Studies",
+    "card1": {
+      "labelClient": "Client:",
+      "client": "APEX Space",
+      "labelIndustry": "Industry:",
+      "industry": "Space / Defense",
+      "labelWidget": "Widget:",
+      "widget": "Lorem ipsum dolor sit amet."
+    },
+    "card2": {
+      "labelClient": "Client:",
+      "client": "Castelion",
+      "labelIndustry": "Industry:",
+      "industry": "Defense",
+      "labelWidget": "Widget:",
+      "widget": "Consectetur adipiscing elit."
+    },
+    "card3": {
+      "labelClient": "Client:",
+      "client": "Reliable Robotics",
+      "labelIndustry": "Industry:",
+      "industry": "Robotics",
+      "labelWidget": "Widget:",
+      "widget": "Sed do eiusmod tempor."
+    },
+    "card4": {
+      "labelClient": "Client:",
+      "client": "Orbital Labs",
+      "labelIndustry": "Industry:",
+      "industry": "Autonomous Systems",
+      "labelWidget": "Widget:",
+      "widget": "Ut labore et dolore magna."
+    },
+    "card5": {
+      "labelClient": "Client:",
+      "client": "Ion Energy",
+      "labelIndustry": "Industry:",
+      "industry": "Energy",
+      "labelWidget": "Widget:",
+      "widget": "Aliquam tincidunt nunc non."
+    }
+  },
+  "inquiry": {
+    "title": "Inquiry Builder",
+    "hint": "Select all that apply",
+    "filesTitle": "Project Files",
+    "filesDrop": "Drag or click to upload",
+    "submit": "SUBMIT INQUIRY"
+  },
+  "industries": {
+    "heading": "Industries",
+    "list": {
+      "aerospace": "Aerospace",
+      "autonomous": "Autonomous Systems",
+      "automotive": "Automotive",
+      "defense": "Defense",
+      "energy": "Energy",
+      "food": "Food & Beverage Equipment",
+      "medical": "Medical Devices",
+      "robotics": "Robotics",
+      "transport": "Transportation Systems"
+    }
+  },
+  "capabilities": {
+    "heading": "Capabilities & Services",
+    "list": {
+      "additive": "Additive MFG / 3D Print",
+      "bespoke": "Bespoke Metal Forming",
+      "cable": "Cable / Harness MFG",
+      "cnc": "CNC Milling",
+      "co2": "CO2 Laser Cutting",
+      "electro": "Electro-Mechanical Assembly",
+      "testing": "Elec. Testing, PCBA Flashing",
+      "fab": "Fabrication / Prototyping",
+      "partMarking": "Part Marking",
+      "production": "Production Assembly",
+      "tooling": "Production Tooling Design",
+      "sheetAssembly": "Sheet Metal Assembly",
+      "sheetCutting": "Sheet Metal Laser Cutting",
+      "sheetForming": "Sheet/Plate Forming",
+      "supplyChain": "Supply Chain Service"
+    }
+  },
+  "modal": {
+    "industryTitle": "Industry",
+    "industryBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet.",
+    "capabilityTitle": "Capability",
+    "capabilityBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc.",
+    "caseTitle": "Case Study",
+    "caseBody": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
+  },
+  "cta": {
+    "contact": "CONTACT BUTTON"
+  },
+  "footer": "© Widget Makers, Inc",
+  "about": {
+    "heading": "Our Story",
+    "story1": "I started Widget Makers to bring the decades of experience our team has building production lines & products for companies like SpaceX, HAAS, Singer Vehicle Design, 3M, Chipotle, Rocket Lab, World View, and Apex Space to the best hard tech companies.",
+    "story2": "5+ years at SpaceX shaped how I build today, from first principle problem solving, to moving fast without sacrificing quality, to the belief that engineering is a team sport where outcomes matter more than ego.",
+    "story3": "Our team’s commitment to clients is simple: treat every part like it’s going to orbit (many are), deliver with absolute rigor, and stand shoulder-to-shoulder with the people building the future on their missions.",
+    "founderName": "Joey Weismann",
+    "founderRole": "Founder",
+    "teamHeading": "Our Team",
+    "factoryHeading": "Our Factory"
+  }
+}

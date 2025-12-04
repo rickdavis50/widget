@@ -4,11 +4,11 @@
 #widget-makers-site .wm-page{max-width:1300px;margin:0 auto;padding:24px 16px 64px;box-sizing:border-box}
 
 /* Shared header */
-.wm-nav{display:grid;grid-template-columns:auto 1fr;align-items:center;padding:8px 0 32px;border-bottom:0;margin-bottom:32px;gap:24px}
+.wm-nav{display:flex;align-items:center;padding:8px 0 32px;border-bottom:0;margin-bottom:32px;gap:24px}
 .wm-nav-left{display:flex;align-items:center;gap:10px}
 .wm-brand{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;height:36px}
 .wm-brand img{height:100%;width:auto;display:block}
-.wm-nav-center{display:flex;justify-content:flex-end;gap:32px;font-size:13px;font-weight:600;letter-spacing:.08em;flex-wrap:wrap}
+.wm-nav-center{display:flex;justify-content:flex-end;gap:32px;font-size:13px;font-weight:600;letter-spacing:.08em;flex-wrap:wrap;margin-left:auto;width:100%}
 .wm-nav-center a{text-decoration:none;color:inherit;cursor:pointer;white-space:nowrap}
 .wm-nav-center a:hover{text-decoration:underline}
 .wm-cta{padding:10px 20px;border:none;background:#d9d9d9;font-size:13px;font-weight:600;letter-spacing:.08em;cursor:pointer;text-transform:uppercase;text-decoration:none;display:inline-block;color:inherit;border-radius:999px;transition:background .18s ease,transform .18s ease}
