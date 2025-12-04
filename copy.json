@@ -5,7 +5,7 @@
     "about": "ABOUT"
   },
   "hero": {
-    "title": "Superior prototyping &amp;<br>scaled production for deep-tech",
+    "title": "Advanced prototyping &amp;<br>scaled production for deep-tech",
     "subtitle": "We bridge concept and capability, giving founders the means to prove, iterate, and scale bleeding edge tech in the physical world.",
     "cta": "BUILD WITH US",
     "certTitle": "American Made in Los Angeles",
@@ -16,29 +16,29 @@
   },
   "mission": {
     "heading": "Mission",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ac lorem id odio porta suscipit."
+    "body": "Accelerate manufacturing from prototype to scaled production for deep tech companies."
   },
   "approach": {
     "heading": "Approach",
     "precision": {
       "title": "Precision:",
-      "body": "lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "body": "every measurement, cut, weld, and tolerance matters."
     },
     "velocity": {
       "title": "Velocity:",
-      "body": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "body": "high quality at speed is a competitive advantage."
     },
     "transparency": {
       "title": "Transparency:",
-      "body": "ut enim ad minim veniam, quis nostrud exercitation ullamco."
+      "body": "clients deserve full access, so we’re always open."
     },
     "craft": {
       "title": "Craft:",
-      "body": "Duis aute irure dolor in reprehenderit in voluptate velit esse."
+      "body": "hardware should be as beautiful as it is functional."
     },
     "loyalty": {
       "title": "Loyalty:",
-      "body": "Excepteur sint occaecat cupidatat non proident."
+      "body": "we treat our partners’ missions as our own and support the full lifecycle."
     }
   },
   "cases": {
