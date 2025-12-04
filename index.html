@@ -510,8 +510,9 @@
           [...fileInput.files].forEach(f=>fd.append("attachments",f));
         }
 
-        fetch("https://formsubmit.co/hello@oddfort.com",{method:"POST",body:fd})
-          .then(res=>{if(!res.ok)throw new Error("Submit failed");alert("Thanks! Your inquiry was sent.");})
+        fetch("https://formsubmit.co/ajax/hello@oddfort.com",{method:"POST",body:fd})
+          .then(res=>res.ok?res.json():res.json().catch(()=>{throw new Error("Submit failed");}).then(()=>{throw new Error("Submit failed");}))
+          .then(()=>{alert("Thanks! Your inquiry was sent.");})
           .catch(err=>{console.error(err);alert("Sorry, there was an issue sending. Please email hello@oddfort.com.");});
       }
 
