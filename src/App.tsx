@@ -1,9 +1,17 @@
+import logoWidget from "./assets/logo_widget.svg";
+import logoFlag from "./assets/icon_flag.svg";
+import logoApex from "./assets/logo_apex.svg";
+import logoArc from "./assets/logo_arc.svg";
+import logoCastelion from "./assets/logo_castelion.svg";
+import logoReliable from "./assets/logo_reliable.svg";
+import logoChipotle from "./assets/logo_chipolte.svg";
+
 const logos = [
-  { name: "Apex", src: "/src/assets/logo_apex.svg" },
-  { name: "Arc", src: "/src/assets/logo_arc.svg" },
-  { name: "Castelion", src: "/src/assets/logo_castelion.svg" },
-  { name: "Reliable Robotics", src: "/src/assets/logo_reliable.svg" },
-  { name: "Chipotle", src: "/src/assets/logo_chipolte.svg" },
+  { name: "Apex", src: logoApex },
+  { name: "Arc", src: logoArc },
+  { name: "Castelion", src: logoCastelion },
+  { name: "Reliable Robotics", src: logoReliable },
+  { name: "Chipotle", src: logoChipotle },
 ];
 
 export default function App() {
@@ -12,11 +20,7 @@ export default function App() {
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-8 py-8 text-ink md:px-14 md:py-10">
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-3 text-[clamp(0.7rem,1vw,0.85rem)] font-medium uppercase tracking-[0.32em]">
-            <img
-              src="/src/assets/logo_widget.svg"
-              alt="Widget Makers"
-              className="h-5 w-auto"
-            />
+            <img src={logoWidget} alt="Widget Makers" className="h-5 w-auto" />
           </div>
           <a
             className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
@@ -42,12 +46,7 @@ export default function App() {
 
           <section className="mt-14 flex flex-col gap-2">
             <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
-              <img
-                src="/src/assets/icon_flag.svg"
-                alt=""
-                className="h-6 w-6"
-                aria-hidden="true"
-              />
+              <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
               <span>American Made in Los Angeles</span>
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
