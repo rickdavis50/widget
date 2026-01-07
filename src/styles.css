@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-black font-sans text-ink antialiased;
+}
+
+.wm-bg{
+  --wedge-x: 112%;
+  --wedge-y: 55%;
+  --wedge-angle: 208deg;
+  --wedge-spread: 26;
+  --hot-size: 980px;
+  --hot-alpha: 0.95;
+  --wedge-alpha: 0.55;
+  --gate-alpha: 0.96;
+  --grain: 0.05;
+
+  min-height:100vh;
+  background:#000;
+  position:relative;
+  overflow:hidden;
+
+  background-image:
+    /* (1) TRIANGULAR BEAM GEOMETRY */
+    conic-gradient(from var(--wedge-angle) at var(--wedge-x) var(--wedge-y),
+      rgba(255,245,220,0.00) 0deg,
+      rgba(255,245,220,0.00) calc(180deg - (var(--wedge-spread) * 1deg)),
+      rgba(255,235,200, calc(var(--wedge-alpha) * 0.45)) 180deg,
+      rgba(232,198,132, var(--wedge-alpha)) calc(180deg + (var(--wedge-spread) * 1deg)),
+      rgba(0,0,0,0.00) calc(180deg + (var(--wedge-spread) * 2deg)),
+      rgba(0,0,0,0.00) 360deg),
+
+    /* (2) WHITE-HOT CORE (blown edge) */
+    radial-gradient(var(--hot-size) var(--hot-size) at 114% 52%,
+      rgba(255,255,255,var(--hot-alpha)) 0%,
+      rgba(255,255,255, calc(var(--hot-alpha) * 0.55)) 14%,
+      rgba(255,232,190, calc(var(--hot-alpha) * 0.38)) 26%,
+      rgba(0,0,0,0.00) 54%),
+
+    /* (3) AMBER PENUMBRA (soft spread) */
+    radial-gradient(1700px 1200px at 102% 68%,
+      rgba(232,198,132,0.52) 0%,
+      rgba(200,160,90,0.24) 36%,
+      rgba(120,90,50,0.12) 54%,
+      rgba(0,0,0,0.00) 76%),
+
+    /* (4) EDGE SMEAR (reinforce triangle) */
+    linear-gradient(to left,
+      rgba(255,240,210,0.18) 0%,
+      rgba(232,198,132,0.10) 14%,
+      rgba(0,0,0,0.00) 44%),
+
+    /* (5) subtle cool/neutral mid haze */
+    radial-gradient(1200px 900px at 58% 56%,
+      rgba(140,160,255,0.06) 0%,
+      rgba(0,0,0,0.00) 72%),
+    radial-gradient(1000px 800px at 42% 58%,
+      rgba(255,255,255,0.04) 0%,
+      rgba(0,0,0,0.00) 74%),
+
+    /* (6) LEFT BLACK GATE (keep text area clean) */
+    radial-gradient(1500px 950px at 18% 10%,
+      rgba(0,0,0,var(--gate-alpha)) 0%,
+      rgba(0,0,0,0.86) 44%,
+      rgba(0,0,0,0.35) 72%,
+      rgba(0,0,0,0.00) 100%),
+
+    /* (7) global falloff */
+    linear-gradient(to bottom,
+      #000 0%,
+      #000 40%,
+      rgba(0,0,0,0.90) 62%,
+      rgba(0,0,0,0.62) 82%,
+      rgba(0,0,0,0.35) 100%);
+  background-repeat:no-repeat;
+  background-blend-mode: normal, normal, normal, normal, normal, normal, normal, normal;
+}
+
+.wm-bg::before{
+  content:"";
+  position:absolute;
+  inset:-12%;
+  pointer-events:none;
+
+  /* diffusion / bloom (soft-light) */
+  background-image:
+    radial-gradient(1300px 1100px at 108% 56%,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,232,190,0.10) 22%,
+      rgba(232,198,132,0.08) 40%,
+      rgba(0,0,0,0.00) 74%),
+    radial-gradient(1500px 1200px at 92% 70%,
+      rgba(232,198,132,0.09) 0%,
+      rgba(0,0,0,0.00) 74%),
+    radial-gradient(1200px 900px at 55% 60%,
+      rgba(255,255,255,0.03) 0%,
+      rgba(0,0,0,0.00) 72%);
+  filter: blur(38px);
+  opacity:0.95;
+  mix-blend-mode: soft-light;
+}
+
+.wm-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  /* real grain + faint vertical diffusion */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.00) 56px,
+      rgba(0,0,0,0.00) 170px);
+  background-repeat: repeat, repeat;
+  opacity: var(--grain);
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .wm-bg::after{ opacity: calc(var(--grain) * 0.7); }
+}
+
+@media (max-width: 640px){
+  .wm-bg{
+    --wedge-x: 120%;
+    --hot-size: 620px;
+    --hot-alpha: 0.82;
+    --wedge-alpha: 0.38;
+    --gate-alpha: 0.98;
+    --grain: 0.035;
+  }
+}
+
+/*
+TRIANGLE CONTROLS:
+- More triangular / sharper wedge:
+  - decrease --wedge-spread (e.g. 26 -> 18)
+  - increase --wedge-x (e.g. 112% -> 118%)
+- Wider beam / less triangular:
+  - increase --wedge-spread (e.g. 26 -> 34)
+- Tilt beam up/down:
+  - adjust --wedge-angle (lower value tilts one way, higher the other; try 200–220)
+- Move wedge vertically:
+  - adjust --wedge-y (e.g. 55% -> 45% moves it upward)
+- Brighter edge burn:
+  - increase --hot-alpha (0.95 -> 0.98) OR increase --hot-size
+- Keep left darker:
+  - increase --gate-alpha (0.96 -> 0.985)
+*/
