@@ -5,6 +5,7 @@ import logoArc from "./assets/logo_arc.svg";
 import logoCastelion from "./assets/logo_castelion.svg";
 import logoReliable from "./assets/logo_reliable.svg";
 import logoChipotle from "./assets/logo_chipolte.svg";
+import Hero from "./components/Hero";
 
 const logos = [
   { name: "Apex", src: logoApex },
@@ -31,18 +32,7 @@ export default function App() {
         </header>
 
         <main className="mt-20 flex flex-1 flex-col justify-between">
-          <section className="max-w-3xl translate-y-6">
-            <h1 className="font-serif text-[clamp(2.4rem,4.5vw,3.75rem)] leading-[1.05] text-[rgba(245,245,245,0.82)] [text-shadow:0_1px_24px_rgba(0,0,0,0.55)]">
-              Advanced Manufacturing
-            </h1>
-            <div className="mt-6 max-w-2xl space-y-6 text-[clamp(0.95rem,1.4vw,1.15rem)] leading-[1.6] text-sub">
-              <p>
-                Our clients make satellites, rockets, missiles, electric boats,
-                drone swarms, rovers, hyper cars, and even burrito robots.
-              </p>
-              <p>Pushing the boundaries of the physical world? Build with us.</p>
-            </div>
-          </section>
+          <Hero />
 
           <section className="mt-14 flex flex-col gap-2">
             <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
