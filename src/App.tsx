@@ -36,7 +36,7 @@ export default function App() {
         <main className="mt-20 flex flex-1 flex-col justify-between">
           <Hero />
 
-          <section className="mt-14 flex flex-col gap-2">
+          <section className="mt-14 flex flex-col gap-1">
             <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
               <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
               <span>American Made in Los Angeles</span>
