@@ -43,7 +43,7 @@ export default function App() {
               <span>Built in Los Angeles near LAX</span>
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
-              AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED
+              AS9100 / ISO9001 CERTIFIED
             </div>
           </section>
         </header>
