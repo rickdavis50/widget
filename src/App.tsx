@@ -42,14 +42,6 @@ export default function App() {
         </header>
 
         <main className="mt-14 flex flex-1 flex-col justify-between md:mt-20">
-          <div className="mb-6 md:hidden">
-            <a
-              className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
-              href="mailto:hello@widgetmakers.com"
-            >
-              hello@widgetmakers.com
-            </a>
-          </div>
           <Hero />
 
           <section className="mt-14 flex flex-col gap-1">

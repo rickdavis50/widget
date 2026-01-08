@@ -75,6 +75,14 @@ export default function Hero() {
             with us to push the boundaries of the physical world faster.
           </p>
         </div>
+        <div className="mt-4 md:hidden">
+          <a
+            className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
+            href="mailto:hello@widgetmakers.com"
+          >
+            hello@widgetmakers.com
+          </a>
+        </div>
       </div>
 
       <section aria-label="Customer Images" className="w-full">
