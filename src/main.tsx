@@ -11,12 +11,20 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 if (typeof window !== "undefined" && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.ready
-      .then((registration) => {
-        const entryUrl = import.meta.url;
-        const urls = [entryUrl, ...precacheUrls];
-        registration.active?.postMessage({ type: "PRECACHE_URLS", urls });
-      })
-      .catch(() => {});
+    const sendPrecache = () => {
+      navigator.serviceWorker.ready
+        .then((registration) => {
+          const entryUrl = import.meta.url;
+          const urls = [entryUrl, ...precacheUrls];
+          registration.active?.postMessage({ type: "PRECACHE_URLS", urls });
+        })
+        .catch(() => {});
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(sendPrecache, { timeout: 2000 });
+    } else {
+      setTimeout(sendPrecache, 1500);
+    }
   });
 }

@@ -225,7 +225,14 @@
           return;
         }
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("/widget/sw.js").catch(function () {});
+          var register = function () {
+            navigator.serviceWorker.register("/widget/sw.js").catch(function () {});
+          };
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(register, { timeout: 2000 });
+          } else {
+            setTimeout(register, 1500);
+          }
         });
       })();
     </script>
