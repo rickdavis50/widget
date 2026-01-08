@@ -3,6 +3,7 @@ import logoFlag from "./assets/icon_flag.svg";
 import logoApex from "./assets/logo_apex.svg";
 import logoArc from "./assets/logo_arc.svg";
 import logoCastelion from "./assets/logo_castelion.svg";
+import logoHadrian from "./assets/logo_hadrian.svg";
 import logoReliable from "./assets/logo_reliable.svg";
 import logoChipotle from "./assets/logo_chipolte.svg";
 import Hero from "./components/Hero";
@@ -11,6 +12,7 @@ const logos = [
   { name: "Apex", src: logoApex },
   { name: "Arc", src: logoArc },
   { name: "Castelion", src: logoCastelion },
+  { name: "Hadrian", src: logoHadrian },
   { name: "Reliable Robotics", src: logoReliable },
   { name: "Chipotle", src: logoChipotle },
 ];

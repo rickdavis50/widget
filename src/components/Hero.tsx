@@ -53,8 +53,8 @@ export default function Hero() {
   return (
     <section className="flex flex-col gap-12">
       <div className="max-w-4xl">
-        <p className="text-[clamp(0.8rem,1vw,0.95rem)] font-medium tracking-[0.18em] text-sub">
-          Advanced Manufacturing
+        <p className="text-[clamp(0.8rem,1vw,0.95rem)] font-medium uppercase tracking-[0.18em] text-sub">
+          ADVANCED MANUFACTURING
         </p>
         <h1 className="mt-2 font-sans text-[clamp(2.2rem,5.3vw,4.8rem)] font-bold leading-[1] tracking-[-0.02em] text-ink">
           Build Faster in America.
@@ -64,7 +64,12 @@ export default function Hero() {
             Our partners make satellites, rockets, missiles, electric boats,
             drone swarms, rovers, hyper cars, and even burrito robots.
           </p>
-          <p>Pushing the boundaries of the physical world? Build with us.</p>
+          <p>
+            <span className="block">
+              Pushing the boundaries of the physical world?
+            </span>
+            <span className="block">Build with us.</span>
+          </p>
         </div>
       </div>
 
@@ -73,7 +78,7 @@ export default function Hero() {
           {customerCards.map((card) => (
             <div
               key={card.name}
-              className="relative aspect-[4/5] overflow-hidden rounded-[10px] border border-line bg-black/10"
+              className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-black/10"
             >
               <div className="absolute left-4 top-4 z-10">
                 <div className="relative">
