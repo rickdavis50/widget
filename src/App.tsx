@@ -29,7 +29,7 @@ export default function App() {
   return (
     <div className="wm-bg">
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-8 py-8 text-ink md:px-14 md:py-10">
-        <header className="flex items-center justify-between">
+        <header className="flex items-start justify-between gap-6">
           <div className="flex items-center gap-3 text-[clamp(0.7rem,1vw,0.85rem)] font-medium uppercase tracking-[0.32em]">
             <img
               src={logoWidget}
@@ -37,21 +37,19 @@ export default function App() {
               className="h-10 w-auto brightness-0 invert"
             />
           </div>
-        </header>
-
-        <main className="mt-14 flex flex-1 flex-col justify-between md:mt-20">
-          <Hero />
-
-          <section className="mt-14 flex flex-col gap-1">
-            <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
+          <section className="flex flex-col items-end gap-1 text-right">
+            <div className="flex items-center justify-end gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
               <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
-              <span className="hidden md:inline">Built in Los Angeles near LAX</span>
-              <span className="md:hidden">Built in Los Angeles near LAX</span>
+              <span>Built in Los Angeles near LAX</span>
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
               AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED
             </div>
           </section>
+        </header>
+
+        <main className="mt-14 flex flex-1 flex-col justify-between md:mt-20">
+          <Hero />
 
           <section className="mt-16">
             <div className="text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
