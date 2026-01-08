@@ -2,10 +2,10 @@ import logoApex from "../assets/logo_apex.svg";
 import logoAstro from "../assets/logo_astro.svg";
 import logoArc from "../assets/logo_arc.svg";
 import logoCastelion from "../assets/logo_castelion.svg";
-import photoApex from "../assets/photo_apex.png";
-import photoAstro from "../assets/photo_astro.png";
-import photoArc from "../assets/photo_arc.png";
-import photoCastelion from "../assets/photo_castelion.png";
+import photoApex from "../assets/photo_apex.avif";
+import photoAstro from "../assets/photo_astro.avif";
+import photoArc from "../assets/photo_arc.avif";
+import photoCastelion from "../assets/photo_castelion.avif";
 
 export default function Hero() {
   const customerCards = [
