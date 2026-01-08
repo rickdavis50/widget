@@ -2,57 +2,79 @@ import logoApex from "../assets/logo_apex.svg";
 import logoAstro from "../assets/logo_astro.svg";
 import logoArc from "../assets/logo_arc.svg";
 import logoCastelion from "../assets/logo_castelion.svg";
-import photoApex from "../assets/photo_apex.avif";
-import photoAstro from "../assets/photo_astro.avif";
-import photoArc from "../assets/photo_arc.avif";
-import photoCastelion from "../assets/photo_castelion.avif";
+import photoApex320 from "../assets/photo_apex-320.avif";
+import photoApex480 from "../assets/photo_apex-480.avif";
+import photoApex640 from "../assets/photo_apex-640.avif";
+import photoAstro320 from "../assets/photo_astro-320.avif";
+import photoAstro480 from "../assets/photo_astro-480.avif";
+import photoAstro640 from "../assets/photo_astro-640.avif";
+import photoArc320 from "../assets/photo_arc-320.avif";
+import photoArc480 from "../assets/photo_arc-480.avif";
+import photoArc640 from "../assets/photo_arc-640.avif";
+import photoCastelion320 from "../assets/photo_castelion-320.avif";
+import photoCastelion480 from "../assets/photo_castelion-480.avif";
+import photoCastelion640 from "../assets/photo_castelion-640.avif";
 
 export default function Hero() {
+  const imageSizes =
+    "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw";
   const customerCards = [
     {
       name: "Apex",
-      image: photoApex,
+      image: photoApex480,
+      srcSet: `${photoApex320} 320w, ${photoApex480} 480w, ${photoApex640} 640w`,
       logo: (
         <img
           src={logoApex}
           alt="Apex"
           className="h-6 w-auto"
+          width={96}
+          height={24}
           style={{ filter: "brightness(0)" }}
         />
       ),
     },
     {
       name: "Astro",
-      image: photoAstro,
+      image: photoAstro480,
+      srcSet: `${photoAstro320} 320w, ${photoAstro480} 480w, ${photoAstro640} 640w`,
       logo: (
         <img
           src={logoAstro}
           alt="Astro"
           className="h-6 w-auto"
+          width={96}
+          height={24}
           style={{ filter: "brightness(0)" }}
         />
       ),
     },
     {
       name: "Arc",
-      image: photoArc,
+      image: photoArc480,
+      srcSet: `${photoArc320} 320w, ${photoArc480} 480w, ${photoArc640} 640w`,
       logo: (
         <img
           src={logoArc}
           alt="Arc"
           className="h-6 w-auto"
+          width={96}
+          height={24}
           style={{ filter: "brightness(0)" }}
         />
       ),
     },
     {
       name: "Castelion",
-      image: photoCastelion,
+      image: photoCastelion480,
+      srcSet: `${photoCastelion320} 320w, ${photoCastelion480} 480w, ${photoCastelion640} 640w`,
       logo: (
         <img
           src={logoCastelion}
           alt="Castelion"
           className="h-6 w-auto"
+          width={96}
+          height={24}
           style={{ filter: "brightness(0)" }}
         />
       ),
@@ -101,8 +123,10 @@ export default function Hero() {
                   className="h-full w-full object-cover"
                   loading={isLcp ? "eager" : "lazy"}
                   decoding="async"
-                  width={800}
-                  height={1000}
+                  width={480}
+                  height={600}
+                  srcSet={card.srcSet}
+                  sizes={imageSizes}
                   {...(isLcp ? { fetchPriority: "high" } : {})}
                 />
                 <div className="absolute left-4 top-4 z-10">

@@ -73,6 +73,8 @@ export default function App() {
                     src={logo.src}
                     alt={logo.name}
                     className="h-6 w-auto opacity-80 brightness-0 invert"
+                    width={96}
+                    height={24}
                   />
                 </a>
               ))}

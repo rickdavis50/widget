@@ -1,5 +1,6 @@
 const CACHE_VERSION = "v1-2024-10-21";
 const CACHE_NAME = `widget-static-${CACHE_VERSION}`;
+const NAVIGATION_TIMEOUT = 2500;
 
 const scopeUrl = new URL(self.registration.scope);
 const BASE_PATH = scopeUrl.pathname.endsWith("/")
@@ -52,17 +53,28 @@ self.addEventListener("fetch", (event) => {
 
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
+      Promise.race([
+        fetch(request).then((response) => {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           return response;
-        })
-        .catch(() =>
-          caches
-            .match(request)
-            .then((match) => match || caches.match(toAbsoluteUrl(BASE_PATH)))
-        )
+        }),
+        new Promise((resolve) =>
+          setTimeout(
+            () =>
+              resolve(
+                caches
+                  .match(request)
+                  .then((match) => match || caches.match(toAbsoluteUrl(BASE_PATH)))
+              ),
+            NAVIGATION_TIMEOUT
+          )
+        ),
+      ]).catch(() =>
+        caches
+          .match(request)
+          .then((match) => match || caches.match(toAbsoluteUrl(BASE_PATH)))
+      )
     );
     return;
   }
