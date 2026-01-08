@@ -21,12 +21,183 @@
       name="twitter:description"
       content="Advanced manufacturing partner."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:opsz@8..72&family=Inter:wght@300;400;500&display=swap"
-      rel="stylesheet"
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
     />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link
+      rel="preload"
+      href="/src/styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/src/styles.css" /></noscript>
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/photo_apex.avif"
+      fetchpriority="high"
+    />
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 300 500;
+        font-display: swap;
+        src: url("/widget/assets/fonts/inter-latin-300-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Instrument Serif";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/widget/assets/fonts/instrument-serif-latin-400.woff2") format("woff2");
+      }
+      html,
+      body,
+      #root {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #000;
+        color: #fbfbfb;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+          sans-serif;
+      }
+      .wm-bg {
+        --wedge-x: 112%;
+        --wedge-y: 55%;
+        --wedge-angle: 208deg;
+        --wedge-spread: 26;
+        --hot-size: 980px;
+        --hot-alpha: 0.95;
+        --wedge-alpha: 0.55;
+        --gate-alpha: 0.96;
+        --grain: 0.05;
+        min-height: 100vh;
+        background: #000;
+        position: relative;
+        overflow: hidden;
+        background-image: conic-gradient(
+            from var(--wedge-angle) at var(--wedge-x) var(--wedge-y),
+            rgba(255, 245, 220, 0) 0deg,
+            rgba(255, 245, 220, 0) calc(180deg - (var(--wedge-spread) * 1deg)),
+            rgba(255, 235, 200, calc(var(--wedge-alpha) * 0.45)) 180deg,
+            rgba(232, 198, 132, var(--wedge-alpha))
+              calc(180deg + (var(--wedge-spread) * 1deg)),
+            rgba(0, 0, 0, 0) calc(180deg + (var(--wedge-spread) * 2deg)),
+            rgba(0, 0, 0, 0) 360deg
+          ),
+          radial-gradient(
+            var(--hot-size) var(--hot-size) at 114% 52%,
+            rgba(255, 255, 255, var(--hot-alpha)) 0%,
+            rgba(255, 255, 255, calc(var(--hot-alpha) * 0.55)) 14%,
+            rgba(255, 232, 190, calc(var(--hot-alpha) * 0.38)) 26%,
+            rgba(0, 0, 0, 0) 54%
+          ),
+          radial-gradient(
+            1700px 1200px at 102% 68%,
+            rgba(232, 198, 132, 0.52) 0%,
+            rgba(200, 160, 90, 0.24) 36%,
+            rgba(120, 90, 50, 0.12) 54%,
+            rgba(0, 0, 0, 0) 76%
+          ),
+          linear-gradient(
+            to left,
+            rgba(255, 240, 210, 0.18) 0%,
+            rgba(232, 198, 132, 0.1) 14%,
+            rgba(0, 0, 0, 0) 44%
+          ),
+          radial-gradient(
+            1200px 900px at 58% 56%,
+            rgba(140, 160, 255, 0.06) 0%,
+            rgba(0, 0, 0, 0) 72%
+          ),
+          radial-gradient(
+            1000px 800px at 42% 58%,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(0, 0, 0, 0) 74%
+          ),
+          radial-gradient(
+            1500px 950px at 18% 10%,
+            rgba(0, 0, 0, var(--gate-alpha)) 0%,
+            rgba(0, 0, 0, 0.86) 44%,
+            rgba(0, 0, 0, 0.35) 72%,
+            rgba(0, 0, 0, 0) 100%
+          ),
+          linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 40%,
+            rgba(0, 0, 0, 0.9) 62%,
+            rgba(0, 0, 0, 0.62) 82%,
+            rgba(0, 0, 0, 0.35) 100%
+          );
+        background-repeat: no-repeat;
+        background-blend-mode: normal, normal, normal, normal, normal, normal, normal,
+          normal;
+      }
+      .wm-bg::before {
+        content: "";
+        position: absolute;
+        inset: -12%;
+        pointer-events: none;
+        background-image: radial-gradient(
+            1300px 1100px at 108% 56%,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 232, 190, 0.1) 22%,
+            rgba(232, 198, 132, 0.08) 40%,
+            rgba(0, 0, 0, 0) 74%
+          ),
+          radial-gradient(
+            1500px 1200px at 92% 70%,
+            rgba(232, 198, 132, 0.09) 0%,
+            rgba(0, 0, 0, 0) 74%
+          ),
+          radial-gradient(
+            1200px 900px at 55% 60%,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(0, 0, 0, 0) 72%
+          );
+        filter: blur(38px);
+        opacity: 0.95;
+        mix-blend-mode: soft-light;
+      }
+      .wm-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E"),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 0px,
+            rgba(255, 255, 255, 0) 56px,
+            rgba(0, 0, 0, 0) 170px
+          );
+        background-repeat: repeat, repeat;
+        opacity: var(--grain);
+        mix-blend-mode: overlay;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .wm-bg::after {
+          opacity: calc(var(--grain) * 0.7);
+        }
+      }
+      @media (max-width: 640px) {
+        .wm-bg {
+          --wedge-x: 120%;
+          --hot-size: 620px;
+          --hot-alpha: 0.82;
+          --wedge-alpha: 0.38;
+          --gate-alpha: 0.98;
+          --grain: 0.035;
+        }
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTBKZZ99V6"></script>
     <script>
@@ -39,5 +210,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function () {
+        if (location.protocol !== "https:" || !("serviceWorker" in navigator)) {
+          return;
+        }
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/widget/sw.js").catch(function () {});
+        });
+      })();
+    </script>
   </body>
 </html>

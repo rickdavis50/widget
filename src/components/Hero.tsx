@@ -79,27 +79,36 @@ export default function Hero() {
 
       <section aria-label="Customer Images" className="w-full">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {customerCards.map((card) => (
-            <div
-              key={card.name}
-              className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-black/10"
-            >
-              <div className="absolute left-4 top-4 z-10">
-                <div className="relative">
-                  <span
-                    className="absolute -inset-3 rounded-[14px] bg-white/12 blur-md"
-                    aria-hidden="true"
-                  />
-                  <span className="relative block">{card.logo}</span>
+          {customerCards.map((card) => {
+            const isLcp = card.name === "Apex";
+
+            return (
+              <div
+                key={card.name}
+                className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-black/10"
+              >
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  className="h-full w-full object-cover"
+                  loading={isLcp ? "eager" : "lazy"}
+                  decoding="async"
+                  width={800}
+                  height={1000}
+                  {...(isLcp ? { fetchPriority: "high" } : {})}
+                />
+                <div className="absolute left-4 top-4 z-10">
+                  <div className="relative">
+                    <span
+                      className="absolute -inset-3 rounded-[14px] bg-white/12 blur-md"
+                      aria-hidden="true"
+                    />
+                    <span className="relative block">{card.logo}</span>
+                  </div>
                 </div>
               </div>
-              <img
-                src={card.image}
-                alt={card.name}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </section>
