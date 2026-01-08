@@ -1,5 +1,4 @@
 import logoWidget from "./assets/logo_widget.svg";
-import logoFlag from "./assets/icon_flag.svg";
 import logoApex from "./assets/logo_apex.svg";
 import logoArc from "./assets/logo_arc.svg";
 import logoCastelion from "./assets/logo_castelion.svg";
@@ -38,9 +37,8 @@ export default function App() {
             />
           </div>
           <section className="flex flex-col items-end gap-1 text-right">
-            <div className="flex items-center justify-end gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
-              <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
-              <span>Built in Los Angeles near LAX</span>
+            <div className="hidden text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink md:block">
+              Built in Los Angeles near LAX
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
               AS9100 / ISO9001 CERTIFIED

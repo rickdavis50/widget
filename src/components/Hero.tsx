@@ -105,6 +105,9 @@ export default function Hero() {
             build@widgetmakers.com
           </a>
         </div>
+        <p className="mt-3 text-[clamp(0.75rem,1vw,0.9rem)] font-medium uppercase tracking-[0.28em] text-ink md:hidden">
+          Built in LA near LAX
+        </p>
       </div>
 
       <section aria-label="Customer Images" className="w-full">
