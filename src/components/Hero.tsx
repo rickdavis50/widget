@@ -59,16 +59,11 @@ export default function Hero() {
         <h1 className="mt-2 font-sans text-[clamp(2.2rem,5.3vw,4.8rem)] font-bold leading-[1] tracking-[-0.02em] text-ink">
           Build Faster in America.
         </h1>
-        <div className="mt-4 max-w-2xl space-y-4 text-[clamp(0.95rem,1.4vw,1.15rem)] leading-[1.6] text-sub">
+        <div className="mt-4 max-w-2xl text-[clamp(0.95rem,1.4vw,1.15rem)] leading-[1.6] text-sub">
           <p>
             Our partners make satellites, rockets, missiles, electric boats,
-            drone swarms, rovers, hyper cars, and even burrito robots.
-          </p>
-          <p>
-            <span className="block">
-              Pushing the boundaries of the physical world?
-            </span>
-            <span className="block">Build with us.</span>
+            drone swarms, rovers, hyper cars, and even burrito robots. Build
+            with us to push the boundaries of the physical world faster.
           </p>
         </div>
       </div>

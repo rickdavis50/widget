@@ -56,7 +56,7 @@ export default function App() {
                   key={logo.name}
                   src={logo.src}
                   alt={logo.name}
-                  className="h-6 w-auto opacity-80"
+                  className="h-6 w-auto opacity-80 brightness-0 invert"
                 />
               ))}
             </div>
