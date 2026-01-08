@@ -1,11 +1,20 @@
+import logoApex from "../assets/logo_apex.svg";
+import logoAstro from "../assets/logo_astro.svg";
+import logoArc from "../assets/logo_arc.svg";
+import logoCastelion from "../assets/logo_castelion.svg";
+import photoApex from "../assets/photo_apex.png";
+import photoAstro from "../assets/photo_astro.png";
+import photoArc from "../assets/photo_arc.png";
+import photoCastelion from "../assets/photo_castelion.png";
+
 export default function Hero() {
   const customerCards = [
     {
       name: "Apex",
-      image: "/src/assets/photo_apex.png",
+      image: photoApex,
       logo: (
         <img
-          src="/src/assets/logo_apex.svg"
+          src={logoApex}
           alt="Apex"
           className="h-6 w-auto"
           style={{ filter: "brightness(0)" }}
@@ -14,10 +23,10 @@ export default function Hero() {
     },
     {
       name: "Astro",
-      image: "/src/assets/photo_astro.png",
+      image: photoAstro,
       logo: (
         <img
-          src="/src/assets/logo_astro.svg"
+          src={logoAstro}
           alt="Astro"
           className="h-6 w-auto"
           style={{ filter: "brightness(0)" }}
@@ -26,10 +35,10 @@ export default function Hero() {
     },
     {
       name: "Arc",
-      image: "/src/assets/photo_arc.png",
+      image: photoArc,
       logo: (
         <img
-          src="/src/assets/logo_arc.svg"
+          src={logoArc}
           alt="Arc"
           className="h-6 w-auto"
           style={{ filter: "brightness(0)" }}
@@ -38,10 +47,10 @@ export default function Hero() {
     },
     {
       name: "Castelion",
-      image: "/src/assets/photo_castelion.png",
+      image: photoCastelion,
       logo: (
         <img
-          src="/src/assets/logo_castelion.svg"
+          src={logoCastelion}
           alt="Castelion"
           className="h-6 w-auto"
           style={{ filter: "brightness(0)" }}
