@@ -34,20 +34,29 @@ export default function App() {
             <img src={logoWidget} alt="Widget Makers" className="h-10 w-auto" />
           </div>
           <a
-            className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
+            className="hidden text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink md:inline"
             href="mailto:hello@widgetmakers.com"
           >
             hello@widgetmakers.com
           </a>
         </header>
 
-        <main className="mt-20 flex flex-1 flex-col justify-between">
+        <main className="mt-14 flex flex-1 flex-col justify-between md:mt-20">
+          <div className="mb-6 md:hidden">
+            <a
+              className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
+              href="mailto:hello@widgetmakers.com"
+            >
+              hello@widgetmakers.com
+            </a>
+          </div>
           <Hero />
 
           <section className="mt-14 flex flex-col gap-1">
             <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
               <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
-              <span>American Made in Los Angeles</span>
+              <span className="hidden md:inline">American Made in Los Angeles</span>
+              <span className="md:hidden">American Made in LA</span>
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
               AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED
