@@ -25,7 +25,7 @@ export default function MobileSecondSection() {
         </div>
         <a
           className="inline-flex items-center justify-center border border-ink/80 px-5 py-2 text-[clamp(0.85rem,1vw,0.95rem)] uppercase tracking-[0.3em] transition-colors hover:bg-ink hover:text-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-          href="mailto:hello@widgetmakers.com?subject=Widget%20Makers%20%E2%80%94%20Capacity%20Request"
+          href="mailto:build@widgetmakers.com?subject=Widget%20Makers%20%E2%80%94%20Capacity%20Request"
         >
           Request Capacity
         </a>

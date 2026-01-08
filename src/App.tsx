@@ -31,14 +31,12 @@ export default function App() {
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-8 py-8 text-ink md:px-14 md:py-10">
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-3 text-[clamp(0.7rem,1vw,0.85rem)] font-medium uppercase tracking-[0.32em]">
-            <img src={logoWidget} alt="Widget Makers" className="h-10 w-auto" />
+            <img
+              src={logoWidget}
+              alt="Widget Makers"
+              className="h-10 w-auto brightness-0 invert"
+            />
           </div>
-          <a
-            className="hidden text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink md:inline"
-            href="mailto:hello@widgetmakers.com"
-          >
-            hello@widgetmakers.com
-          </a>
         </header>
 
         <main className="mt-14 flex flex-1 flex-col justify-between md:mt-20">
@@ -47,8 +45,8 @@ export default function App() {
           <section className="mt-14 flex flex-col gap-1">
             <div className="flex items-center gap-3 text-[clamp(0.85rem,1.2vw,1rem)] font-medium uppercase tracking-[0.28em] text-ink">
               <img src={logoFlag} alt="" className="h-6 w-6" aria-hidden="true" />
-              <span className="hidden md:inline">American Made in Los Angeles</span>
-              <span className="md:hidden">American Made in LA</span>
+              <span className="hidden md:inline">Built in Los Angeles near LAX</span>
+              <span className="md:hidden">Built in Los Angeles near LAX</span>
             </div>
             <div className="text-[clamp(0.65rem,0.95vw,0.8rem)] uppercase tracking-[0.35em] text-sub">
               AS9100 / ISO9001 / IPC J-STD-001 CERTIFIED

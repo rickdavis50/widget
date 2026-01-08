@@ -7,9 +7,9 @@ export default function TopBar() {
       </div>
       <a
         className="text-[clamp(0.8rem,1.1vw,0.95rem)] text-sub transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-        href="mailto:hello@widgetmakers.com"
+        href="mailto:build@widgetmakers.com"
       >
-        hello@widgetmakers.com
+        build@widgetmakers.com
       </a>
     </header>
   );
