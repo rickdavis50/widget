@@ -65,6 +65,8 @@ export default function App() {
                   href={logo.href}
                   className="inline-flex"
                   aria-label={`${logo.name} website`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src={logo.src}
