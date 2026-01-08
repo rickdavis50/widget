@@ -99,7 +99,7 @@ export default function Hero() {
         </div>
         <div className="mt-4">
           <a
-            className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
+            className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink underline transition-colors hover:text-ink"
             href="mailto:build@widgetmakers.com"
           >
             build@widgetmakers.com
