@@ -23,7 +23,7 @@ export default function App() {
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-8 py-8 text-ink md:px-14 md:py-10">
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-3 text-[clamp(0.7rem,1vw,0.85rem)] font-medium uppercase tracking-[0.32em]">
-            <img src={logoWidget} alt="Widget Makers" className="h-5 w-auto" />
+            <img src={logoWidget} alt="Widget Makers" className="h-10 w-auto" />
           </div>
           <a
             className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink transition-colors hover:text-ink"
