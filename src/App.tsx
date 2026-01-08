@@ -9,12 +9,20 @@ import logoChipotle from "./assets/logo_chipolte.svg";
 import Hero from "./components/Hero";
 
 const logos = [
-  { name: "Apex", src: logoApex },
-  { name: "Arc", src: logoArc },
-  { name: "Castelion", src: logoCastelion },
-  { name: "Hadrian", src: logoHadrian },
-  { name: "Reliable Robotics", src: logoReliable },
-  { name: "Chipotle", src: logoChipotle },
+  { name: "Apex", src: logoApex, href: "https://www.apexspace.com/" },
+  { name: "Arc", src: logoArc, href: "https://arcboats.com/" },
+  { name: "Castelion", src: logoCastelion, href: "https://www.castelion.com/" },
+  {
+    name: "Hadrian",
+    src: logoHadrian,
+    href: "https://techcrunch.com/2025/07/17/hadrian-raises-260m-to-build-out-automated-factories-for-space-and-defense-parts/",
+  },
+  { name: "Reliable Robotics", src: logoReliable, href: "https://reliable.co/" },
+  {
+    name: "Chipotle",
+    src: logoChipotle,
+    href: "https://newsroom.chipotle.com/2024-09-16-CHIPOTLE-DEBUTS-AUTOCADO-AND-THE-AUGMENTED-MAKELINE-BY-HYPHEN-IN-RESTAURANTS",
+  },
 ];
 
 export default function App() {
@@ -52,12 +60,18 @@ export default function App() {
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
               {logos.map((logo) => (
-                <img
+                <a
                   key={logo.name}
-                  src={logo.src}
-                  alt={logo.name}
-                  className="h-6 w-auto opacity-80 brightness-0 invert"
-                />
+                  href={logo.href}
+                  className="inline-flex"
+                  aria-label={`${logo.name} website`}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="h-6 w-auto opacity-80 brightness-0 invert"
+                  />
+                </a>
               ))}
             </div>
           </section>
