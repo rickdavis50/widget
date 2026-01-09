@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import logoWidget from "./assets/logo_widget.svg";
 import logoApex from "./assets/logo_apex.svg";
 import logoArc from "./assets/logo_arc.svg";
@@ -25,6 +26,31 @@ const logos = [
 ];
 
 export default function App() {
+  useEffect(() => {
+    const host = window.location.hostname;
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    const search = window.location.search || "";
+    const hash = window.location.hash || "";
+    if (host === "widgetmakers.com") {
+      window.location.replace(
+        `https://www.widgetmakers.com${path}${search}${hash}`
+      );
+      return;
+    }
+    if (host === "www.widgetmakers.com") {
+      const legacy = new Set([
+        "/about-us",
+        "/services",
+        "/industries",
+        "/request-widget",
+        "/category/uncategorized",
+      ]);
+      if (legacy.has(path)) {
+        window.location.replace("https://www.widgetmakers.com/");
+      }
+    }
+  }, []);
+
   return (
     <div className="wm-bg">
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-8 py-8 text-ink md:px-14 md:py-10">

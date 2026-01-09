@@ -3,24 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Widget Makers</title>
-    <meta name="description" content="Advanced manufacturing partner." />
+    <title>Widget Makers | Advanced Manufacturing for Aerospace, Robotics & Defense</title>
+    <meta
+      name="description"
+      content="Advanced manufacturing in Los Angeles serving aerospace, robotics, automotive, defense, and drone companies. CNC machining, sheet metal, additive manufacturing, harness assembly, and full builds. Team has led major manufacturing efforts at SpaceX, Hyphen, and Singer Vehicle Design."
+    />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://rickdavis50.github.io/widget/" />
+    <link rel="canonical" href="https://www.widgetmakers.com/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta property="og:title" content="Widget Makers" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Widget Makers" />
+    <meta
+      property="og:title"
+      content="Widget Makers | Advanced Manufacturing for Aerospace, Robotics & Defense"
+    />
     <meta
       property="og:description"
-      content="Advanced manufacturing partner."
+      content="Advanced manufacturing for aerospace, robotics, automotive, defense, and drone programs. CNC machining, sheet metal, additive, harness assembly, and full builds. Led by a team with deep experience running major manufacturing efforts at SpaceX, Hyphen, and Singer Vehicle Design."
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rickdavis50.github.io/widget/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Widget Makers" />
+    <meta property="og:url" content="https://www.widgetmakers.com/" />
+    <meta property="og:image" content="https://www.widgetmakers.com/image_social.avif" />
+    <meta
+      property="og:image:alt"
+      content="Widget Makers advanced manufacturing for aerospace, robotics, automotive, defense, and drones"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Widget Makers | Advanced Manufacturing for Aerospace, Robotics & Defense"
+    />
     <meta
       name="twitter:description"
-      content="Advanced manufacturing partner."
+      content="Advanced manufacturing partner for aerospace, robotics, automotive, defense, and drone companies. CNC, sheet metal, additive, harnesses, and full builds by a team that led major manufacturing efforts at SpaceX, Hyphen, and Singer Vehicle Design."
     />
+    <meta name="twitter:image" content="https://www.widgetmakers.com/image_social.avif" />
+    <script>
+      (function () {
+        var host = window.location.hostname;
+        var path = window.location.pathname.replace(/\/+$/, "") || "/";
+        var search = window.location.search || "";
+        var hash = window.location.hash || "";
+        if (host === "widgetmakers.com") {
+          window.location.replace(
+            "https://www.widgetmakers.com" + path + search + hash
+          );
+          return;
+        }
+        if (host === "www.widgetmakers.com") {
+          var legacy = {
+            "/about-us": true,
+            "/services": true,
+            "/industries": true,
+            "/request-widget": true,
+            "/category/uncategorized": true,
+          };
+          if (legacy[path]) {
+            window.location.replace("https://www.widgetmakers.com/");
+          }
+        }
+      })();
+    </script>
     <link
       rel="preconnect"
       href="https://www.googletagmanager.com"
