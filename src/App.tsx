@@ -33,7 +33,7 @@ export default function App() {
             <img
               src={logoWidget}
               alt="Widget Makers"
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto"
             />
           </div>
           <section className="flex flex-col items-end gap-1 text-right">
