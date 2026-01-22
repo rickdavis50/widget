@@ -152,7 +152,7 @@ export default function Hero() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: clamp(14px, 2vw, 22px) clamp(24px, 5vw, 56px);
+          padding: clamp(10px, 1.6vw, 16px) clamp(18px, 3.8vw, 40px);
           border: 1px solid #c7b288;
           border-radius: 9999px;
           background: #000;
