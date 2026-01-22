@@ -3,7 +3,7 @@ import logoWidget from "./assets/logo_widget.svg";
 import logoApex from "./assets/logo_apex.svg";
 import logoArc from "./assets/logo_arc.svg";
 import logoCastelion from "./assets/logo_castelion.svg";
-import logoHadrian from "./assets/logo_hadrian.svg";
+import logoHyphen from "./assets/logo_hyphen.svg";
 import logoReliable from "./assets/logo_reliable.svg";
 import logoChipotle from "./assets/logo_chipolte.svg";
 import Hero from "./components/Hero";
@@ -14,7 +14,7 @@ const logos = [
   { name: "Castelion", src: logoCastelion, href: "https://www.castelion.com/" },
   {
     name: "Hadrian",
-    src: logoHadrian,
+    src: logoHyphen,
     href: "https://techcrunch.com/2025/07/17/hadrian-raises-260m-to-build-out-automated-factories-for-space-and-defense-parts/",
   },
   { name: "Reliable Robotics", src: logoReliable, href: "https://reliable.co/" },
