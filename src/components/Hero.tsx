@@ -99,8 +99,9 @@ export default function Hero() {
         </div>
         <div className="mt-4">
           <a
-            className="text-[clamp(0.75rem,1vw,0.9rem)] text-ink underline decoration-2 underline-offset-4 transition-colors hover:text-ink"
+            className="wm-email-pill"
             href="mailto:build@widgetmakers.com"
+            aria-label="Email Widget Makers"
           >
             build@widgetmakers.com
           </a>
@@ -146,6 +147,40 @@ export default function Hero() {
           })}
         </div>
       </section>
+      <style>{`
+        .wm-email-pill {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: clamp(14px, 2vw, 22px) clamp(24px, 5vw, 56px);
+          border: 1px solid #c7b288;
+          border-radius: 9999px;
+          background: #000;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          font-weight: 700;
+          text-decoration: none;
+          line-height: 1;
+          max-width: 100%;
+          box-sizing: border-box;
+          cursor: pointer;
+          transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+        .wm-email-pill:hover {
+          border-color: #decaa1;
+          box-shadow: 0 0 0 2px rgba(199, 178, 136, 0.18);
+        }
+        .wm-email-pill:focus-visible {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(199, 178, 136, 0.45);
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .wm-email-pill {
+            transition: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
