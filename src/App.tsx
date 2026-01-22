@@ -15,7 +15,7 @@ const logos = [
   {
     name: "Hadrian",
     src: logoHyphen,
-    href: "https://techcrunch.com/2025/07/17/hadrian-raises-260m-to-build-out-automated-factories-for-space-and-defense-parts/",
+    href: "https://www.usehyphen.com/",
   },
   { name: "Reliable Robotics", src: logoReliable, href: "https://reliable.co/" },
   {
